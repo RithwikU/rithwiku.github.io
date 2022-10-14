@@ -63,3 +63,5 @@
   - Linear Algebra
   - Stability of controllers and systems
   - Observability and Controlability  
+
+[**Contact details**](about/contact.md)

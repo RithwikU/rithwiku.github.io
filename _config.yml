@@ -1,7 +1,5 @@
 theme: jekyll-theme-minimal
 title: Rithwik Udayagiri
-description: MSE Robotics
-Univeristy of Pennsylvania
-include:
-  README.md
-  about/contact.md
+description:
+  MSE Robotics
+  Univeristy of Pennsylvania

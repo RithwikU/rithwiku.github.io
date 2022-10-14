@@ -1,8 +1,6 @@
-# Rithwik Udayagiri
-
 ## Education
 
-### University of Pennsylvania
+### University of Pennsylvania - MSE Robotics (September 2021 - May 2023)
 ##### Projects
 
 * Autonomous EV Go Kart

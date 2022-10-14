@@ -1,5 +1,4 @@
 # Rithwik Udayagiri
-Personal website to show projects
 
 ## Education
 
@@ -40,7 +39,7 @@ Personal website to show projects
   - Study popular machine learning techniques
   - Implement algorithms using PyTorch
 
-  **Final Project:**_Reinforcement Learning for Control of Drones_
+  **Final Project:** _Reinforcement Learning for Control of Drones_
     - Comparative study of modern algorithms with same reward functions
     - Improvised a novel reward function for better performance based on control parameters
 
@@ -49,7 +48,7 @@ Personal website to show projects
   - Graph search algorithms
   - DH parameters
 
-  **Final Project:**_Pick-and-Place challenge_
+  **Final Project:** _Pick-and-Place challenge_
     - 1v1 competition format to make a FRANKA Panda Emika manipulator arm pick and stack blocks
     - Blocks are static and dynamic with known location and orientation
     - Strategize to obtain maximum points within given time limit
@@ -60,7 +59,7 @@ Personal website to show projects
   - Image matching and stitching
   - Image recognition
 
-  **Final Project:**_3D Scene Flow for Mesh-Subject Correspondence Tracking_
+  **Final Project:** _3D Scene Flow for Mesh-Subject Correspondence Tracking_
 
 * ESE 500 - Linear System Theory (Fall 2021)
   - Linear Algebra

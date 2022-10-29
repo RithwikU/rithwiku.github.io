@@ -1,15 +1,4 @@
 ### University of Pennsylvania - MSE Robotics (September 2021 - May 2023)
-##### Projects
-
-* Autonomous EV Go Kart
-  - Built a Go Kart from scratch to be race ready. Started with the Mechanical components and then assembled the low and high level electronics and sensors to achieve autonomy.
-  - Pioneered the efforts in Control, Planning , Sensor Integration and Fusion
-
-* Smart Sensing toy for classifying Infant Interaction and Soft Lossy Force Sensor
-  -  Developed a novel structure for a soft force sensor using optical fibers
-  - Compression in the designed soft lattice structure causes the fiber to bend and in turn signal is lost
-  - Direct relation between signal lost and force applied is studied.
-  - classifying interaction data by collecting data from sensors embedded in a soft toy
 
 ##### Courses
 * MEAM 517 - Control and Optimization with applications in Robotics (Fall 2022)
@@ -17,7 +6,7 @@
   - Implement controllers for basic systems like planar quad rotor, cart-pole and acrobot
   - Optimize trajectory for same systems
 
-  **Final Project**
+  **Final Project** _Multi-agent planning and control in uncertain environments with temporal tasks_
     -
 
 * CIS 580 - Machine Perception (Fall 2022)]

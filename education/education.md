@@ -51,7 +51,7 @@
   - Stability of controllers and systems
   - Observability and Controllability  
 
-### National Institute of Technology Karnataka, Surathkal, India - B.Tech Electronics and Communication
+### National Institute of Technology Karnataka, Surathkal, India - B.Tech Electronics and Communication (August 2016 - June 2020)
 
 ##### Courses
 

@@ -50,3 +50,13 @@
   - Linear Algebra
   - Stability of controllers and systems
   - Observability and Controllability  
+
+### National Institute of Technology Karnataka, Surathkal, India - B.Tech Electronics and Communication
+
+##### Courses
+
+* Control systems
+* Data structures and algorithms
+* Discrete Mathematics
+* Linear Algebra
+* Digital System Design

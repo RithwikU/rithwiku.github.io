@@ -1,8 +1,22 @@
-theme: jekyll-theme-minimal
+theme: jekyll-theme-hydejack
 title: Rithwik Udayagiri
 description:
   MSE Robotics
   Univeristy of Pennsylvania
+
+accent_color: '#A85641'
+
+author:
+  name:  Rithwik Udayagiri
+  email: rithwiku@seas.upenn.edu
+  about: |
+    MSE Robotics
+  Univeristy of Pennsylvania
+  picture: /assets/UdayagiriRithwik.jpeg
+  social:
+    github: https://github.com/RithwikU
+    email: rithwiku@seas.upenn.edu
+    twitter: @RithwikUgiri
 
 ################
 # --- Logo --- #

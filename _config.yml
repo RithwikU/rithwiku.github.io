@@ -1,62 +1,93 @@
-theme: jekyll-theme-hydejack
-title: Rithwik Udayagiri
-description:
-  MSE Robotics
-  Univeristy of Pennsylvania
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
 
-accent_color: '#A85641'
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            Hyde
+tagline:          'A Jekyll theme'
+description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+url:              http://hyde.getpoole.com
+baseurl:          /
 
 author:
-  name:  Rithwik Udayagiri
-  email: rithwiku@seas.upenn.edu
-  about: |
-    MSE Robotics
-  Univeristy of Pennsylvania
-  picture: /assets/UdayagiriRithwik.jpeg
-  social:
-    github: https://github.com/RithwikU
-    email: rithwiku@seas.upenn.edu
-    twitter: @RithwikUgiri
+  name:           'Mark Otto'
+  url:            https://twitter.com/mdo
 
-################
-# --- Logo --- #
-################
+paginate:         5
 
-# Image to show in the navigation bar - works best with a square image
-# Remove this parameter if you don't want an image in the navbar
-avatar: "/assets/UdayagiriRithwik.jpeg"
+# Custom vars
+version:          2.1.0
 
-# By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
-round-avatar: true
+github:
+  repo:           https://github.com/poole/hyde
 
-#####################################
-# --- Footer social media links --- #
-#####################################
-social-network-links:
-  email: "someone@example.com"
-  rss: true  # remove this line if you don't want to show an RSS link at the bottom
-  facebook:
-  github:
-  twitter:
-  patreon:
-  youtube: 
-#  medium: yourname
-#  reddit: yourname
-#  linkedin: daattali
-#  xing: yourname
-#  stackoverflow: "3943160/daattali"
-#  snapchat: deanat78
-#  instagram: deanat78
-#  spotify: yourname
-#  telephone: +14159998888
-#  steam: deanat78
-#  twitch: yourname
-#  yelp: yourname
-#  telegram: yourname
-#  calendly: yourname
-#  mastodon: instance.url/@username
-#  ORCID: your ORCID ID
-#  google-scholar: your google scholar
-#  discord: invite/invite_code or users/userid
-#  kaggle: yourname
-#  hackerrank: yourname
+
+
+
+##############
+# theme: jekyll-theme-hydejack
+# title: Rithwik Udayagiri
+# description:
+#   MSE Robotics
+#   Univeristy of Pennsylvania
+
+# accent_color: '#A85641'
+
+# author:
+#   name:  Rithwik Udayagiri
+#   email: rithwiku@seas.upenn.edu
+#   about: |
+#     MSE Robotics
+#   Univeristy of Pennsylvania
+#   picture: /assets/UdayagiriRithwik.jpeg
+#   social:
+#     github: https://github.com/RithwikU
+#     email: rithwiku@seas.upenn.edu
+#     twitter: @RithwikUgiri
+
+# ################
+# # --- Logo --- #
+# ################
+
+# # Image to show in the navigation bar - works best with a square image
+# # Remove this parameter if you don't want an image in the navbar
+# avatar: "/assets/UdayagiriRithwik.jpeg"
+
+# # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
+# round-avatar: true
+
+# #####################################
+# # --- Footer social media links --- #
+# #####################################
+# social-network-links:
+#   email: "someone@example.com"
+#   rss: true  # remove this line if you don't want to show an RSS link at the bottom
+#   facebook:
+#   github:
+#   twitter:
+#   patreon:
+#   youtube: 
+# #  medium: yourname
+# #  reddit: yourname
+# #  linkedin: daattali
+# #  xing: yourname
+# #  stackoverflow: "3943160/daattali"
+# #  snapchat: deanat78
+# #  instagram: deanat78
+# #  spotify: yourname
+# #  telephone: +14159998888
+# #  steam: deanat78
+# #  twitch: yourname
+# #  yelp: yourname
+# #  telegram: yourname
+# #  calendly: yourname
+# #  mastodon: instance.url/@username
+# #  ORCID: your ORCID ID
+# #  google-scholar: your google scholar
+# #  discord: invite/invite_code or users/userid
+# #  kaggle: yourname
+# #  hackerrank: yourname

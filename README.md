@@ -6,4 +6,4 @@
 
 [<font size="5">Contact details</font>](about/contact.md)
 
-<img src="assets/quadruped.jpg"  width="200"/>
+<img src="assets/quadruped.JPG" width="200"/>

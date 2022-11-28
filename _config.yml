@@ -25,6 +25,16 @@ version:          2.1.0
 github:
   repo:           https://github.com/poole/hyde
 
+!/assets/UdayagiriRithwik.jpeg
+
+layout: photo_set
+title: Berlin
+permalink: /berlin/
+description: "An example photo gallery."
+
+photos:
+    set: berlin
+    size: 3
 
 
 

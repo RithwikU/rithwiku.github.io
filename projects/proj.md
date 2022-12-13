@@ -28,3 +28,7 @@ The pandemic was a rough time for everyone. From losing loved ones, to being tra
 <br>
 
 </details>
+
+
+#### Courses taught
+* ROS tutorial - [Google drive folder with recordings, slides and resources](https://drive.google.com/drive/folders/1jK_nggO5UnxDw2puAgXvZ5x0YHlxKuYJ)

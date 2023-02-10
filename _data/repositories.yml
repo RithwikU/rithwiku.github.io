@@ -1,12 +1,16 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - RithwikU
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - SauberBOT/SickTiM
+  - Aadith-Kumar/MEAM-517-Project
+  - mlab-upenn/gokart
+  - ngurnard/CIS519-Final-Project
+  - RithwikU/NLMS_24bit
+  - RithwikU/Updated-QWT-PPI-Display
+  - ShubhAgarwal566/meam520_labs
+  - fcladera/RTK-LoRa
+  - adarshmalapaka/Robocon-2019
+  - mlab-upenn/gokart-simulation
+  - mlab-upenn/gokart-v2
+  - mlab-upenn/gokart-doc

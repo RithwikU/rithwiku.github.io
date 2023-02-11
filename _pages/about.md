@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: MSE Robotics, University of Pennsylvania
+subtitle: <span style="color:gray">MSE Robotics, University of Pennsylvania</span>
 
 profile:
   align: right

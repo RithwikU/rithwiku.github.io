@@ -9,7 +9,6 @@ profile:
   image: UdayagiriRithwik.jpeg
   image_circular: false # crops the image to make it circular
   address: >
-    <p>Unit 15</p>
     <p>3836 Spring Garden</p>
     <p>Philadelphia, PA - 19104</p>
 

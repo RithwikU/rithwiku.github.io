@@ -80,7 +80,7 @@
 - title: Open Source Projects
   type: time_table
   contents:
-    - title: DIY Oxygen Concentrator
+    - title: <a href="../projects/o2_concentrator">DIY Oxygen Concentrator</a>
       year: 2020 - 2021
       description: During the COVID Pandemic, there was a huge shortage of Oxygen cylinders. To meet the needs, my dad and I built an oxygen concentrator in our garage.
     # - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
@@ -103,12 +103,44 @@
   contents:
     - title: Control
       items: 
-        - Description 1.
-        - Description 2.
+        - <a href="../projects/f1_tenth">F1Tenth</a>
+        - <a href="../projects/gokart">Autonomous GoKart</a>
+        - <a href="../projects/chance_MPC">MPC</a>
     - title: Motion Planning
+      items: 
+        - <a href="../projects/f1_tenth">F1Tenth</a>
+        - <a href="../projects/gokart">Autonomous GoKart</a>
+        - <a href="../projects/chance_MPC">MPC</a>
+        - <a href="../projects/indoor_outdoor_localization">Indoor-Outdoor localization</a>
+    - title: Localization
+      items: 
+        - <a href="../projects/f1_tenth">F1Tenth</a>
+        - <a href="../projects/gokart">Autonomous GoKart</a>
+        - <a href="../projects/indoor_outdoor_localization">Indoor-Outdoor localization</a>
+    - title: SLAM
+      items: 
+        - <a href="../projects/f1_tenth">F1Tenth</a>
+        - <a href="../projects/indoor_outdoor_localization">Indoor-Outdoor localization</a>
+    - title: Sensor Integration
       items:
-        - Description 1.
-        - Description 2.
+        - <a href="../projects/gokart">Autonomous GoKart</a>
+        - <a href="../projects/indoor_outdoor_localization">Indoor-Outdoor localization</a>
+    - title: Mechanical Design
+      items: 
+        - <a href="../projects/sauberbot">SauberBOT</a>
+        - <a href="../projects/lossy_sensor">Smart Infant Toy</a>
+        - <a href="../projects/gokart">Autonomous GoKart</a>
+    - title: Rapid Prototyping
+      items: 
+        - <a href="../projects/sauberbot">SauberBOT</a>
+        - <a href="../projects/lossy_sensor">Smart Infant Toy</a>
+        - <a href="../projects/gokart">Autonomous GoKart</a>
+    - title: Machine Learning
+      items: 
+        - <a href="../projects/lossy_sensor">Smart Infant Toy</a>
+    - title: Medical Devices
+      items: 
+        - <a href="../projects/lossy_sensor">Smart Infant Toy</a>
 
 - title: Other Interests
   type: list

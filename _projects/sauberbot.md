@@ -11,6 +11,8 @@ category: work
 
 ##### <a href="https://drive.google.com/file/d/1Hxmgf_T4VC9aw6UoFV4gLvduTu-jYDTs/view?usp=sharing">Report</a>
 
+###### <a href="https://www.grasp.upenn.edu/news/robotics-masters-students-take-on-sicks-tim10k-challenge">UPenn GRASP Lab article</a>
+
 **Achieved first place in the SICK TiM10k LiDAR Challenge 2023.** This challenge required us to submit a detailed <a href="https://drive.google.com/file/d/1Hxp43QTz0KJwqwQGnAboDa4r6M6RePEB/view?usp=sharing">proposal</a> of a product that utilizes a LiDAR and solves some issue.
 
 <iframe width="768" height="432" src="https://www.youtube.com/embed/_JcPts7voj8" title="SICK LiDAR TiM$10K Challenge -  SauberBOT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
@@ -19,14 +21,19 @@ category: work
 The cleaning industry is facing significant challenges due to its labor-intensive nature and the growing demand for services that exceed the capacity of many companies. Cleaning large open spaces can be time-consuming and often inefficient, leading to a loss of productivity for the company and its staff. To enhance the productivity of businesses and enable the staff to focus on intricate tasks requiring human attention, an innovative solution is required to automate the repetitive and tedious task of cleaning large open spaces.
 
 
-
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/sauberbot_group_pic.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/sauberbot_group_pic.jpg" title="SauberBOT Team" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    The SauberBOT team
+    Left to Right: 
+    <a href="https://www.linkedin.com/in/udayagiririthwik/">Rithwik Udayagiri</a>, 
+    <a href="https://www.linkedin.com/in/pranav-p-shah/">Pranav Shah</a>, 
+    <a href="https://www.linkedin.com/in/aaditp/">Aadit Patel</a>, 
+    <a href="https://www.linkedin.com/in/sharonrichushaji/">Sharon Shaji</a>, and 
+    <a href="https://www.linkedin.com/in/aadith-kumar/">Aadith Kumar</a> 
+    posing behind the SauberBOT.
 </div>
 
 We worked around the clock talking to experts from the cleaning industry, experts on robotics, and

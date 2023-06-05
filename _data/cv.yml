@@ -14,19 +14,9 @@
     - title: Masters in Robotics
       institution: University of Pennsylvania
       year: 2021 - 2023
-      description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
     - title: Bachelor in Technology
       institution: National Institute of Technology, Karnataka, Surathkal, India
       year: 2016 - 2020
-      description:
-        - Description 1.
-        - Description 2.
 
 - title: Experience
   type: time_table
@@ -35,12 +25,15 @@
       institution: Rehabilatation Robotics Lab, Univeristy of Pennsylvania
       year: Nov 2021 - Now
       description:
-        - 
+        - <u>Smart Infant Toy</u> - Developing a toy that can detect and classif infant interaction
+        - This will be used for early detection of motor and neurological developmental delays
+        - <u>Lossy Force Sensor</u> - A novel force sensor made from soft resin that can be used for measuring forces in human-robot interaction
     - title: Researcher
       institution: xLab, University of Pennsylvania
       year: Jan 2022 - Oct 2022
       description:
-        - 
+        - Developed an autonomous go-kart for the Purdue Autonomous Karting Series
+        - Pioneered efforts in control, planning, localization, and sensor integration
     - title: ASIC Engineer
       institution: NVIDIA, Bangalore, India
       year: July 2020 - Aug 2021

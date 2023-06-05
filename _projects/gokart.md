@@ -10,7 +10,9 @@ category: work
 
 ##### January 2022 --- October 2022
 
-Achieved **first place** at the 2023 Purdue Autonomous Karting Series.
+<p>
+&#x2605;<strong>Achieved first place at the 2023 Purdue Autonomous Karting Series</strong>
+</p>
 
 #### Technology
 I contributed to the control, motion planning, localization, sensor integration, sensor fusion and manufacturing of the gokart.

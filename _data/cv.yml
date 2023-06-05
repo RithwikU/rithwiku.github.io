@@ -25,9 +25,8 @@
       institution: Rehabilatation Robotics Lab, Univeristy of Pennsylvania
       year: Nov 2021 - Now
       description:
-        - <u>Smart Infant Toy</u> - Developing a toy that can detect and classif infant interaction
-        - This will be used for early detection of motor and neurological developmental delays
-        - <u>Lossy Force Sensor</u> - A novel force sensor made from soft resin that can be used for measuring forces in human-robot interaction
+        - "AI-driven soft toy for detecting and classifying infant interactions using optical force sensors to detect neurodevelopmental delays"
+        - <u>Lossy Force Sensor</u> - A novel optical force sensor made from soft resin that can be used for measuring forces in human-robot interaction
     - title: Researcher
       institution: xLab, University of Pennsylvania
       year: Jan 2022 - Oct 2022

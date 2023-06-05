@@ -9,9 +9,15 @@ category: work
 
 ##### January 2023 --- May 2023
 
+<p>
+&#x2605;<strong>Achieved first place in the reactive methods race using Follow The Gap</strong><br>
+&#x2605;<strong>Achieved third place in the indoor map-based race</strong>
+</p>
+
+
 The car is equipped with a 2D LiDAR, VESC and Jetson NX as the compute platform.
 ### Follow The Gap
-This algorithm is classified as a reactive driving method, as it identifies the widest gap in the upcoming path and moves in that direction. The gap is found by filtering and thresholding the LiDAR readings.
+This algorithm is classified as a <u>reactive driving method</u>, as it identifies the widest gap in the upcoming path and moves in that direction. The gap is found by filtering and thresholding the LiDAR readings.
 <iframe width="768" height="432" src="https://www.youtube.com/embed/Epvru2RtgFE" title="Lab 4: Follow the Gap - No Obstacles" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <iframe width="768" height="432" src="https://www.youtube.com/embed/KjXDykeQQ_U" title="ESE615 | Follow the Gap - Levine Blocked | Team Hot Wheels" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

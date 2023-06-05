@@ -13,7 +13,11 @@ category: work
 
 ###### <a href="https://www.grasp.upenn.edu/news/robotics-masters-students-take-on-sicks-tim10k-challenge">UPenn GRASP Lab article</a>
 
-**Achieved first place in the SICK TiM10k LiDAR Challenge 2023.** This challenge required us to submit a detailed <a href="https://drive.google.com/file/d/1Hxp43QTz0KJwqwQGnAboDa4r6M6RePEB/view?usp=sharing">proposal</a> of a product that utilizes a LiDAR and solves some issue.
+<p>
+&#x2605;<strong>Achieved first place in the <a href="https://www.sick.com/us/en/tim10k/w/tim10k/">SICK TiM10k LiDAR Challenge 2023</a></strong>
+</p>
+This challenge required us to submit a detailed <a href="https://drive.google.com/file/d/1Hxp43QTz0KJwqwQGnAboDa4r6M6RePEB/view?usp=sharing">proposal</a> of a product that utilizes a LiDAR and solves some issue.
+
 
 <iframe width="768" height="432" src="https://www.youtube.com/embed/_JcPts7voj8" title="SICK LiDAR TiM$10K Challenge -  SauberBOT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>

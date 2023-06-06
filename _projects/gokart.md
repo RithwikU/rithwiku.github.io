@@ -11,7 +11,7 @@ category: work
 ##### January 2022 --- October 2022
 
 <p>
-&#x2605;<strong>Achieved first place at the 2023 Purdue Autonomous Karting Series</strong>
+&#x2605;<strong> Achieved first place at the 2023 Purdue Autonomous Karting Series</strong>
 </p>
 
 #### Technology

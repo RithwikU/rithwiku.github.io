@@ -10,8 +10,8 @@ category: work
 ##### January 2023 --- May 2023
 
 <p>
-&#x2605;<strong>Achieved first place in the reactive methods race using Follow The Gap</strong><br>
-&#x2605;<strong>Achieved third place in the indoor map-based race</strong>
+&#x2605;<strong> Achieved first place in the reactive methods race using Follow The Gap</strong><br>
+&#x2605;<strong> Achieved third place in the indoor map-based race</strong>
 </p>
 
 

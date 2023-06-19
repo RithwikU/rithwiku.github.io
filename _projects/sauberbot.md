@@ -13,6 +13,8 @@ category: work
 
 ###### <a href="https://www.grasp.upenn.edu/news/robotics-masters-students-take-on-sicks-tim10k-challenge">UPenn GRASP Lab article</a>
 
+###### <a href="https://indrorobotics.ca/upenn-robotics-team-cleans-up-at-sick-lidar-competition/">InDro Robotics article</a>
+
 <p>
 &#x2605;<strong> Achieved first place in the <a href="https://www.sick.com/us/en/tim10k/w/tim10k/">SICK TiM10k LiDAR Challenge 2023</a></strong>
 </p>

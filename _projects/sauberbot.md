@@ -15,6 +15,9 @@ category: work
 
 ###### <a href="https://indrorobotics.ca/upenn-robotics-team-cleans-up-at-sick-lidar-competition/">InDro Robotics article</a>
 
+###### <a href="https://sickusablog.com/university-students-use-sick-lidar-solve-real-world-problems/?utm_campaign=Oktopost-USA+-+TiM10K&utm_content=Oktopost-linkedin&utm_medium=social&utm_source=linkedin">SICK article</a>
+
+
 <p>
 &#x2605;<strong> Achieved first place in the <a href="https://www.sick.com/us/en/tim10k/w/tim10k/">SICK TiM10k LiDAR Challenge 2023</a></strong>
 </p>

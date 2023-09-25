@@ -21,6 +21,12 @@
 - title: Experience
   type: time_table
   contents:
+    - title: Research Engineering Intern
+      institution: Recupero Robotics
+      year: July 2023 - Now
+      description:
+        - Create the lights, sounds and sensor systems for Recupero Robotics' TheraDrive
+        - Design and build the website for Recupero Robotics
     - title: Research Assitant
       institution: Rehabilatation Robotics Lab, Univeristy of Pennsylvania
       year: Nov 2021 - Now

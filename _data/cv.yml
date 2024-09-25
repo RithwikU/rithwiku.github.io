@@ -21,6 +21,13 @@
 - title: Experience
   type: time_table
   contents:
+    - title: Robotics Engineer
+      institution: Milwaukee Tool
+      year: Nov 2023 - Now
+      description:
+        - Spearheading the development of the planning, control, mapping and localization packages of an outdoor autonomous robot
+        - Managed and mentored two interns, boosting team productivity and project outcomes through leadership and guidance
+        - Led the development of an autonomous mobile manipulator for rough terrains, focusing on navigation, localization, sensor integration, and manipulation using ROS
     - title: Research Engineering Intern
       institution: Recupero Robotics
       year: July 2023 - Now

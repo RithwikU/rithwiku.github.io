@@ -2,14 +2,15 @@
 layout: about
 title: about
 permalink: /
-subtitle: <span style="color:gray">MSE Robotics, University of Pennsylvania</span>
+subtitle: <span style="color:gray">Robotics Engineer, Milwaukee Tool
+MSE Robotics, University of Pennsylvania</span>
 
 profile:
   align: right
   image: UdayagiriRithwik.jpeg
   image_circular: false # crops the image to make it circular
   address: >
-    <p>Philadelphia,PA - 19104</p>
+    <p>Milwaukee, WI</p>
 
 news: false  # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"

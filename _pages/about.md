@@ -2,8 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <span style="color:gray">Robotics Engineer, Milwaukee Tool
-MSE Robotics, University of Pennsylvania</span>
+subtitle: <span style="color:gray">Robotics Engineer, Milwaukee Tool</span>
 
 profile:
   align: right

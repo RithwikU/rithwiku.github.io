@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="_ds/modernist-d3c96521-c4e0-4573-b59c-f6873393173b/styles.css">
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<style>
+:root{--color-bg:#201e1d;--color-text:#f3f2f2;--color-surface:#2d2b2b;--color-divider:color-mix(in srgb,#f3f2f2 30%,transparent)}
+html,body{height:100%}
+body{margin:0;background:var(--color-bg);color:var(--color-text);font-variant-numeric:tabular-nums}
+.wrap{display:flex;flex-wrap:wrap;height:100%;border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider)}
+.stage{flex:3 1 520px;min-width:0;position:relative;min-height:420px;border-right:2px solid var(--color-divider);overflow:hidden}
+.stage svg{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab}
+.stage.adding svg{cursor:crosshair}
+.panel{flex:1 1 260px;min-width:0;display:flex;flex-direction:column;max-height:100%}
+.lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-400)}
+.country{fill:#2d2b2b;stroke:#201e1d;stroke-width:.6}
+.country.visited{fill:#605d5d}
+.country:hover{fill:#444141}
+.country.visited:hover{fill:#7d7979}
+.grat{fill:none;stroke:color-mix(in srgb,#f3f2f2 7%,transparent);stroke-width:.5}
+.sphere{fill:none;stroke:color-mix(in srgb,#f3f2f2 25%,transparent);stroke-width:1}
+.pin rect{fill:var(--color-accent);stroke:#201e1d}
+.pin.sel rect{fill:var(--color-text)}
+.pin text{fill:var(--color-text);font:600 11px Archivo,sans-serif;paint-order:stroke;stroke:#201e1d;stroke-width:3px;pointer-events:none}
+.ctrls{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:2px}
+.ctrls button{width:36px;height:36px;border:0;background:var(--color-surface);color:var(--color-text);font:800 18px Archivo,sans-serif;cursor:pointer}
+.ctrls button:hover{background:#444141}
+.hint{position:absolute;left:12px;bottom:12px;padding:4px 10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--color-accent);color:#201e1d;display:none}
+.stage.adding .hint{display:block}
+.tip{position:absolute;pointer-events:none;background:var(--color-text);color:#201e1d;padding:6px 10px;font-size:12px;display:none;white-space:nowrap}
+.tip b{display:block;font-weight:800}
+.stats{display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--color-divider)}
+.stats div{padding:16px}
+.stats div+div{border-left:1px solid var(--color-divider)}
+.num{font:800 40px/1 Archivo,sans-serif;color:var(--color-accent);margin-top:6px}
+.list{flex:1;overflow:auto;margin:0;padding:0;list-style:none}
+.list li{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--color-divider);cursor:pointer}
+.list li:hover,.list li.sel{background:var(--color-surface)}
+.list li .sq{width:8px;height:8px;background:var(--color-accent);flex:none}
+.list li .nm{flex:1;min-width:0}
+.list li .nm b{display:block;font-weight:800;font-size:14px}
+.list li .nm span{font-size:12px;color:var(--color-neutral-400)}
+.list li .x{border:0;background:none;color:var(--color-neutral-500);font-size:16px;cursor:pointer;padding:4px}
+.list li .x:hover{color:var(--color-accent)}
+form{padding:16px;border-top:2px solid var(--color-divider);display:flex;flex-direction:column;gap:8px}
+.row{display:flex;gap:8px}
+.row>*{flex:1;min-width:0}
+.input{background:var(--color-surface)}
+.btn-secondary{color:var(--color-text)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="stage" id="stage">
+    <svg id="map"></svg>
+    <div class="ctrls"><button id="zin" title="Zoom in">+</button><button id="zout" title="Zoom out">−</button><button id="zreset" title="Reset" style="font-size:12px">⟲</button></div>
+    <div class="hint">Click the map to drop a pin</div>
+    <div class="tip" id="tip"></div>
+  </div>
+  <div class="panel">
+    <div class="stats">
+      <div><div class="lbl">Places</div><div class="num" id="nPlaces">0</div></div>
+      <div><div class="lbl">Countries</div><div class="num" id="nCountries">0</div></div>
+    </div>
+    <ul class="list" id="list"></ul>
+    <form id="form" autocomplete="off">
+      <div class="lbl">Add a location</div>
+      <input class="input" id="fName" placeholder="Place name" required>
+      <div class="row"><input class="input" id="fLat" placeholder="Lat" type="number" step="any" min="-90" max="90" required><input class="input" id="fLng" placeholder="Lng" type="number" step="any" min="-180" max="180" required></div>
+      <input class="input" id="fNote" placeholder="Note (optional)">
+      <div class="row">
+        <button type="button" class="btn btn-secondary" id="pick">Pick on map</button>
+        <button type="submit" class="btn btn-primary" style="justify-content:space-between">Add pin <span>+</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+const KEY = 'ru-travels-v1';
+const DEFAULTS = [
+  { name: 'Boston, MA', lat: 42.3601, lng: -71.0589, note: 'Home base' },
+  { name: 'Milwaukee, WI', lat: 43.0389, lng: -87.9065, note: 'Milwaukee Tool' },
+  { name: 'Philadelphia, PA', lat: 39.9522, lng: -75.1932, note: 'UPenn, 2021–2023' },
+  { name: 'West Lafayette, IN', lat: 40.4259, lng: -86.9081, note: 'Purdue karting race' },
+  { name: 'Bangalore, India', lat: 12.9716, lng: 77.5946, note: 'NVIDIA' },
+  { name: 'Surathkal, India', lat: 13.0108, lng: 74.7943, note: 'NIT Karnataka' }
+];
+let places = (() => { try { return JSON.parse(localStorage.getItem(KEY)) || DEFAULTS.slice(); } catch { return DEFAULTS.slice(); } })();
+let sel = -1, adding = false, countries = [], k = 1;
+const save = () => localStorage.setItem(KEY, JSON.stringify(places));
+
+const stage = document.getElementById('stage'), svg = d3.select('#map'), tip = document.getElementById('tip');
+const root = svg.append('g'), gCountries = root.append('g'), gPins = root.append('g');
+const projection = d3.geoNaturalEarth1(), path = d3.geoPath(projection);
+const zoom = d3.zoom().scaleExtent([1, 12]).on('zoom', e => { k = e.transform.k; root.attr('transform', e.transform); drawPins(); });
+svg.call(zoom);
+
+function size() {
+  const w = stage.clientWidth, h = stage.clientHeight;
+  projection.fitExtent([[16, 16], [w - 16, h - 16]], { type: 'Sphere' });
+  root.selectAll('path').attr('d', path);
+  drawPins();
+}
+
+function countryOf(p) { const c = countries.find(f => d3.geoContains(f, [p.lng, p.lat])); return c ? c.properties.name : null; }
+
+function render() {
+  const visited = new Set(places.map(countryOf).filter(Boolean));
+  gCountries.selectAll('.country').classed('visited', d => visited.has(d.properties.name));
+  document.getElementById('nPlaces').textContent = places.length;
+  document.getElementById('nCountries').textContent = visited.size;
+  const list = d3.select('#list').selectAll('li').data(places, d => d.name + d.lat + d.lng).join(enter => {
+    const li = enter.append('li');
+    li.append('span').attr('class', 'sq');
+    const nm = li.append('div').attr('class', 'nm'); nm.append('b'); nm.append('span');
+    li.append('button').attr('class', 'x').attr('title', 'Remove').text('×');
+    return li;
+  });
+  list.classed('sel', (d, i) => i === sel)
+    .on('click', (e, d) => { sel = places.indexOf(d); focus(d); render(); });
+  list.select('b').text(d => d.name);
+  list.select('.nm span').text(d => d.note || `${d.lat.toFixed(2)}, ${d.lng.toFixed(2)}`);
+  list.select('.x').on('click', (e, d) => { e.stopPropagation(); places.splice(places.indexOf(d), 1); sel = -1; save(); render(); });
+  drawPins();
+}
+
+function drawPins() {
+  const s = 9 / k;
+  const pins = gPins.selectAll('.pin').data(places, d => d.name + d.lat + d.lng).join(enter => {
+    const g = enter.append('g').attr('class', 'pin').style('cursor', 'pointer');
+    g.append('rect'); g.append('text');
+    return g;
+  });
+  pins.classed('sel', (d, i) => i === sel)
+    .attr('transform', d => { const [x, y] = projection([d.lng, d.lat]); return `translate(${x},${y})`; })
+    .on('mouseenter', (e, d) => { tip.innerHTML = `<b>${esc(d.name)}</b>${esc(d.note || '')}`; tip.style.display = 'block'; })
+    .on('mousemove', e => { const r = stage.getBoundingClientRect(); tip.style.left = (e.clientX - r.left + 14) + 'px'; tip.style.top = (e.clientY - r.top + 14) + 'px'; })
+    .on('mouseleave', () => tip.style.display = 'none')
+    .on('click', (e, d) => { e.stopPropagation(); sel = places.indexOf(d); render(); });
+  pins.select('rect').attr('x', -s / 2).attr('y', -s / 2).attr('width', s).attr('height', s).attr('stroke-width', 1.5 / k);
+  pins.select('text').attr('x', s * 0.9).attr('y', s * 0.35).attr('font-size', 11 / k).style('stroke-width', 3 / k)
+    .text((d, i) => (i === sel || k >= 3) ? d.name : '');
+}
+
+function focus(d) {
+  const [x, y] = projection([d.lng, d.lat]), w = stage.clientWidth, h = stage.clientHeight, s = Math.max(k, 4);
+  svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity.translate(w / 2 - x * s, h / 2 - y * s).scale(s));
+}
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+svg.on('click', e => {
+  if (!adding) return;
+  const t = d3.zoomTransform(svg.node()), [mx, my] = d3.pointer(e, svg.node());
+  const [lng, lat] = projection.invert(t.invert([mx, my]));
+  if (!isFinite(lat)) return;
+  document.getElementById('fLat').value = lat.toFixed(4);
+  document.getElementById('fLng').value = lng.toFixed(4);
+  setAdding(false);
+  document.getElementById('fName').focus();
+});
+function setAdding(v) { adding = v; stage.classList.toggle('adding', v); document.getElementById('pick').textContent = v ? 'Cancel' : 'Pick on map'; }
+document.getElementById('pick').onclick = () => setAdding(!adding);
+document.getElementById('form').onsubmit = e => {
+  e.preventDefault();
+  const p = { name: fName.value.trim(), lat: +fLat.value, lng: +fLng.value, note: fNote.value.trim() };
+  if (!p.name || !isFinite(p.lat) || !isFinite(p.lng)) return;
+  places.push(p); sel = places.length - 1; save(); e.target.reset(); render(); focus(p);
+};
+document.getElementById('zin').onclick = () => svg.transition().call(zoom.scaleBy, 1.6);
+document.getElementById('zout').onclick = () => svg.transition().call(zoom.scaleBy, 1 / 1.6);
+document.getElementById('zreset').onclick = () => svg.transition().call(zoom.transform, d3.zoomIdentity);
+
+d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json').then(topo => {
+  countries = topojson.feature(topo, topo.objects.countries).features;
+  gCountries.append('path').datum({ type: 'Sphere' }).attr('class', 'sphere');
+  gCountries.append('path').datum(d3.geoGraticule10()).attr('class', 'grat');
+  gCountries.selectAll('.country').data(countries).join('path').attr('class', 'country')
+    .on('mouseenter', (e, d) => { if (adding) return; tip.innerHTML = `<b>${esc(d.properties.name)}</b>`; tip.style.display = 'block'; })
+    .on('mousemove', e => { const r = stage.getBoundingClientRect(); tip.style.left = (e.clientX - r.left + 14) + 'px'; tip.style.top = (e.clientY - r.top + 14) + 'px'; })
+    .on('mouseleave', () => tip.style.display = 'none');
+  size(); render();
+});
+new ResizeObserver(size).observe(stage);
+</script>
+</body>
+</html>

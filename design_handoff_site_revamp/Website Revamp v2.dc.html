@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-d3c96521-c4e0-4573-b59c-f6873393173b/styles.css">
+<script src="_ds/modernist-d3c96521-c4e0-4573-b59c-f6873393173b/_ds_bundle.js"></script>
+<style>body{margin:0;background:#201e1d}a{color:#ff9783}a:hover{color:#ec3013}@keyframes blink{50%{opacity:0}}@keyframes scan{0%{top:0}100%{top:100%}}@keyframes pulse{50%{opacity:.35}}</style>
+</helmet>
+<div style="--color-bg:#201e1d;--color-text:#f3f2f2;--color-surface:#2d2b2b;--color-divider:color-mix(in srgb,#f3f2f2 30%,transparent);min-height:100vh;background:var(--color-bg);color:var(--color-text);font-variant-numeric:tabular-nums">
+
+  <div style="position:sticky;top:0;z-index:5;background:var(--color-bg)">
+    <div style="max-width:1200px;margin:0 auto;padding:0 var(--space-6)">
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-6);padding:var(--space-2) 0;border-bottom:1px solid var(--color-divider);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-400)">
+        
+        <span>42.3601° N · 71.0589° W</span>
+        <span style="margin-left:auto">BOS {{ clock }}</span>
+      </div>
+      <nav class="nav" style="padding:var(--space-4) 0;flex-wrap:wrap">
+        <a href="#/" onClick="{{ go.home }}" class="nav-brand" style="font-size:18px">Rithwik<font color="#ec3013">&nbsp;Udayagiri</font></a>
+        <a href="#/" aria-current="{{ cur.home }}" onClick="{{ go.home }}">Profile</a>
+        <a href="#/builds" aria-current="{{ cur.builds }}" onClick="{{ go.builds }}">Builds</a>
+        <a href="#/workshop" aria-current="{{ cur.workshop }}" onClick="{{ go.workshop }}">Workshop</a>
+        <a href="#/timeline" aria-current="{{ cur.timeline }}" onClick="{{ go.timeline }}">Timeline</a>
+        <a href="#/travels" aria-current="{{ cur.travels }}" onClick="{{ go.travels }}">Travels</a>
+        <a href="#/contact" aria-current="{{ cur.contact }}" onClick="{{ go.contact }}">Say hi</a>
+      </nav>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:0 var(--space-6)">
+
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <section id="about" data-screen-label="Hero" style="padding:96px 0 0;border-bottom:2px solid var(--color-divider)">
+      <h1 style="font-size:clamp(52px,9vw,128px);line-height:0.9;letter-spacing:-0.04em;margin:0 0 72px;max-width:1100px">I build robots that find their own way<span style="color:var(--color-accent)">.</span>{{ cursor }}</h1>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,max(calc(33.33% - 2px),calc((720px - 100%) * 999))),1fr));gap:2px;overflow:hidden;padding-top:1px;border-top:1px solid color-mix(in srgb,var(--color-text) 30%,var(--color-bg))">
+        <div style="box-shadow:0 0 0 1px color-mix(in srgb,var(--color-text) 30%,var(--color-bg));display:flex;align-items:center;gap:var(--space-4);padding:var(--space-6)">
+          <div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:18px">Rithwik Udayagiri</div>
+            <div style="font-size:13px;color:var(--color-neutral-400)">Boston, MA</div>
+          </div>
+        </div>
+        <p style="box-shadow:0 0 0 1px color-mix(in srgb,var(--color-text) 30%,var(--color-bg));margin:0;padding:var(--space-6);font-size:16px;color:var(--color-neutral-300);text-wrap:pretty;align-self:stretch;display:flex;align-items:center">I'm Rithwik, a robotics engineer at Luminous Robotics. I work on motion planning and decision making for autonomous robots.</p>
+        <div style="box-shadow:0 0 0 1px color-mix(in srgb,var(--color-text) 30%,var(--color-bg));display:flex;flex-direction:column;justify-content:center;gap:var(--space-2);padding:var(--space-6)">
+          <a class="btn btn-primary" href="#/builds" onClick="{{ go.builds }}" style="justify-content:space-between">See my builds <span>→</span></a>
+          <a class="btn btn-secondary" href="#/contact" onClick="{{ go.contact }}" style="color:var(--color-text);justify-content:space-between">Say hi <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Profile" style="display:flex;flex-wrap:wrap;gap:var(--space-8);padding:var(--space-8) 0;border-bottom:2px solid var(--color-divider)">
+      <div style="flex:1 1 240px;min-width:0">
+        <h6 style="margin:0 0 var(--space-2);color:var(--color-accent-400)">Operator profile</h6>
+        <h2 style="margin:0 0 var(--space-6);font-size:56px;letter-spacing:-0.03em">About</h2>
+        <div class="grayscale" style="width:100%;max-width:240px;aspect-ratio:4/5;overflow:hidden;border:2px solid var(--color-divider)"><img src="assets/img/UdayagiriRithwik.jpeg" alt="Rithwik Udayagiri" style="width:100%;height:100%;object-fit:cover;object-position:center 20%"></div>
+      </div>
+      <div style="flex:2 1 420px;min-width:0;display:flex;flex-direction:column;gap:var(--space-6)">
+        <p style="font-size:18px;line-height:1.6;margin:0;max-width:720px;color:var(--color-neutral-300);text-wrap:pretty">I can't sit still. Projects, courses, competitions — I'm always juggling something and hunting for the next thing to learn. That took me from timing closure on NVIDIA silicon to racing go-karts with no driver, and now to teaching an outdoor robot where it is and where to go next.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));border-top:2px solid var(--color-divider)">
+          <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+            <div style="padding:var(--space-4) var(--space-4) var(--space-4) 0;border-bottom:1px solid var(--color-divider)">
+              <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-400);margin-bottom:var(--space-1)">{{ s.k }}</div>
+              <div style="font-family:var(--font-heading);font-weight:800;font-size:16px">{{ s.v }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    </sc-if>
+
+    <sc-if value="{{ isBuilds }}" hint-placeholder-val="{{ false }}">
+    <section id="builds" data-screen-label="Builds" style="padding:var(--space-8) 0">
+      <div style="display:flex;align-items:end;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;margin-bottom:var(--space-6)">
+        <div>
+          <h6 style="margin:0 0 var(--space-2);color:var(--color-accent-400)">Build archive · {{ count }} entries</h6>
+          <h2 style="margin:0;font-size:56px;letter-spacing:-0.03em">Builds</h2>
+        </div>
+        <div class="seg">
+          <label class="seg-opt"><input type="radio" name="pf" checked="{{ isAll }}" onChange="{{ setAll }}">All</label>
+          <label class="seg-opt"><input type="radio" name="pf" checked="{{ isWork }}" onChange="{{ setWork }}">Work</label>
+          <label class="seg-opt"><input type="radio" name="pf" checked="{{ isFun }}" onChange="{{ setFun }}">Fun</label>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:2px;overflow:hidden;padding:1px 0;border-top:1px solid color-mix(in srgb,var(--color-text) 30%,var(--color-bg));border-bottom:1px solid color-mix(in srgb,var(--color-text) 30%,var(--color-bg))">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="6">
+          <a href="#" style="box-shadow:0 0 0 1px color-mix(in srgb,var(--color-text) 30%,var(--color-bg));background:var(--color-bg);display:flex;flex-direction:column;text-decoration:none;color:var(--color-text)" style-hover="background:var(--color-surface)">
+            <sc-if value="{{ p.hasImg }}" hint-placeholder-val="{{ true }}">
+              <div class="grayscale" style="aspect-ratio:4/3;overflow:hidden;border-bottom:2px solid var(--color-divider)"><img src="{{ p.img }}" alt="{{ p.title }}" style="width:100%;height:100%;object-fit:cover"></div>
+            </sc-if>
+            <sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ false }}">
+              <div style="aspect-ratio:4/3;border-bottom:2px solid var(--color-divider);display:flex;align-items:flex-end;padding:var(--space-6);background:var(--color-surface)"><span style="font-family:var(--font-heading);font-weight:800;font-size:88px;line-height:0.8;color:var(--color-neutral-800)">{{ p.num }}</span></div>
+            </sc-if>
+            <div style="padding:var(--space-4) var(--space-4) var(--space-6);display:flex;flex-direction:column;gap:var(--space-2);flex:1">
+              <div style="display:flex;justify-content:space-between;gap:var(--space-2);font-size:11px;letter-spacing:0.08em;text-transform:uppercase"><span style="color:var(--color-accent-400)">{{ p.date }}</span><span style="color:var(--color-neutral-400)">B-{{ p.num }}</span></div>
+              <div style="font-family:var(--font-heading);font-weight:800;font-size:22px;line-height:1.1">{{ p.title }}</div>
+              <p style="margin:0;font-size:14px;color:var(--color-neutral-300);flex:1">{{ p.desc }}</p>
+              <sc-if value="{{ p.award }}" hint-placeholder-val="{{ false }}"><div style="align-self:flex-start;display:flex;align-items:flex-start;gap:6px;border:1px solid var(--color-accent);color:var(--color-accent-400);font-size:11px;letter-spacing:0.02em;line-height:1.35;padding:3px 10px;max-width:100%"><span>★</span><span style="min-width:0">{{ p.award }}</span></div></sc-if>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    </sc-if>
+
+    <sc-if value="{{ isWorkshop }}" hint-placeholder-val="{{ false }}">
+    <section id="workshop" data-screen-label="Workshop" style="padding:var(--space-8) 0;border-bottom:2px solid var(--color-divider)">
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-8)">
+        <div style="flex:1 1 240px;min-width:0">
+          <h6 style="margin:0 0 var(--space-2);color:var(--color-accent-400)">Under construction</h6>
+          <h2 style="margin:0;font-size:56px;letter-spacing:-0.03em">The Workshop</h2>
+        </div>
+        <p style="flex:2 1 420px;min-width:0;margin:0;font-size:16px;color:var(--color-neutral-300);max-width:560px;align-self:end">Interactive experiments I'm building right into this site. Bays open as they come online.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:var(--space-4);margin-top:var(--space-6)">
+        <sc-for list="{{ bays }}" as="b" hint-placeholder-count="3">
+          <div style="border:1px dashed var(--color-divider);padding:var(--space-6);min-height:180px;display:flex;flex-direction:column;justify-content:space-between">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-400)">Bay {{ b.n }}</span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-size:18px;color:var(--color-neutral-500)">Awaiting build_</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    </sc-if>
+
+    <sc-if value="{{ isTravels }}" hint-placeholder-val="{{ false }}">
+    <section id="travels" data-screen-label="Travels" style="padding:var(--space-8) 0">
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-8);margin-bottom:var(--space-6)">
+        <div style="flex:1 1 240px;min-width:0">
+          <h6 style="margin:0 0 var(--space-2);color:var(--color-accent-400)">Places I've been</h6>
+          <h2 style="margin:0;font-size:56px;letter-spacing:-0.03em">Travels</h2>
+        </div>
+        <p style="flex:2 1 420px;min-width:0;margin:0;font-size:16px;color:var(--color-neutral-300);max-width:560px;align-self:end">Drag to pan, scroll to zoom, hover a pin for details. Add a place by typing its coordinates or picking it straight off the map.</p>
+      </div>
+      <iframe src="Travels Map.html" title="Travels map" style="display:block;width:100%;height:640px;border:0;background:var(--color-bg)"></iframe>
+    </section>
+    </sc-if>
+
+    <sc-if value="{{ isTimeline }}" hint-placeholder-val="{{ false }}">
+    <section id="timeline" data-screen-label="Timeline" style="display:flex;flex-wrap:wrap;gap:var(--space-8);padding:var(--space-8) 0;border-bottom:2px solid var(--color-divider)">
+      <div style="flex:1 1 240px;min-width:0">
+        <h6 style="margin:0 0 var(--space-2);color:var(--color-accent-400)">Career telemetry</h6>
+        <h2 style="margin:0;font-size:56px;letter-spacing:-0.03em">Timeline</h2>
+      </div>
+      <div style="flex:2 1 420px;min-width:0;display:flex;flex-direction:column">
+        <sc-for list="{{ experience }}" as="e" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr);gap:var(--space-4);padding:var(--space-4) 0;border-top:1px solid var(--color-divider)">
+            <span style="font-size:13px;color:var(--color-accent-400)">{{ e.year }}</span>
+            <div><div style="font-family:var(--font-heading);font-weight:800;font-size:18px">{{ e.title }}</div><div style="font-size:14px;color:var(--color-neutral-400)">{{ e.org }}</div></div>
+          </div>
+        </sc-for>
+        <div style="display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr);gap:var(--space-4);padding:var(--space-4) 0;border-top:2px solid var(--color-divider)">
+          <span style="font-size:13px;color:var(--color-accent-400)">Training</span>
+          <div style="font-size:14px;display:flex;flex-direction:column;gap:var(--space-1)"><span><strong>MS Robotics</strong> — University of Pennsylvania, 2021–2023</span><span><strong>B.Tech</strong> — NIT Karnataka, Surathkal, 2016–2020</span></div>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+  </div>
+
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+    <section id="contact" data-screen-label="Contact" style="background:var(--color-accent);color:#201e1d;min-height:calc(100vh - 150px);display:flex;align-items:flex-end">
+      <div style="width:100%;max-width:1200px;margin:0 auto;padding:96px var(--space-6);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:var(--space-8);align-items:end">
+        <div>
+          <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:var(--space-4)">// Open a channel</div>
+          <h2 style="font-size:clamp(48px,7vw,100px);line-height:0.92;letter-spacing:-0.035em;margin:0;color:#201e1d">Let's build something weird.</h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px;background:color-mix(in srgb,#201e1d 40%,transparent)">
+          <a href="mailto:rithwik.ugiri@gmail.com" style="background:var(--color-accent);color:#201e1d;text-decoration:none;display:flex;justify-content:space-between;padding:var(--space-4) 0;font-family:var(--font-heading);font-weight:800;font-size:20px" style-hover="color:#f3f2f2"><span>rithwik.ugiri@gmail.com</span><span>→</span></a>
+          <a href="https://github.com/RithwikU" style="background:var(--color-accent);color:#201e1d;text-decoration:none;display:flex;justify-content:space-between;padding:var(--space-4) 0;font-size:16px" style-hover="color:#f3f2f2"><span>GitHub</span><span>↗</span></a>
+          <a href="https://www.linkedin.com/in/udayagiririthwik" style="background:var(--color-accent);color:#201e1d;text-decoration:none;display:flex;justify-content:space-between;padding:var(--space-4) 0;font-size:16px" style-hover="color:#f3f2f2"><span>LinkedIn</span><span>↗</span></a>
+          <a href="https://twitter.com/RithwikUgiri" style="background:var(--color-accent);color:#201e1d;text-decoration:none;display:flex;justify-content:space-between;padding:var(--space-4) 0;font-size:16px" style-hover="color:#f3f2f2"><span>Twitter</span><span>↗</span></a>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <footer style="max-width:1200px;margin:0 auto;padding:var(--space-6);display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-400)">
+    <span>© 2026 RITHWIK UDAYAGIRI</span>
+    <span><br></span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;animations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showAllProjects&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { filter: 'all', clock: '', page: (location.hash.replace('#/', '') || 'home') };
+  componentDidMount() {
+    this.onHash = () => this.setState({ page: location.hash.replace('#/', '') || 'home' });
+    window.addEventListener('hashchange', this.onHash);
+    const tick = () => this.setState({ clock: new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour12: false }) });
+    tick(); this.t = setInterval(tick, 1000);
+  }
+  componentWillUnmount() { clearInterval(this.t); window.removeEventListener('hashchange', this.onHash); }
+  renderVals() {
+    const h = React.createElement;
+    const all = [
+      ['SauberBOT', 'An autonomous garbage collection robot', 'Oct 2022 – May 2023', 'assets/img/sauberbot_group_pic.jpg', 'work', '1st, SICK TiM10k LiDAR Challenge'],
+      ['F1Tenth', 'Autonomous racing for 1/10 model cars', 'Jan – May 2023', 'assets/img/f1tenth_car.JPG', 'work', '1st reactive race · 3rd map-based'],
+      ['Autonomous EV Go Kart', 'Building, developing and coding an autonomous electric go-kart to race', 'Jan – Oct 2022', 'assets/img/gokart_purdue.jpeg', 'work', '1st, Purdue Autonomous Karting 2023'],
+      ['Indoor-Outdoor Localization', 'Localizing and navigating indoor and outdoor terrains using a Velodyne 3D LiDAR and GPS', 'Apr – May 2023', 'assets/img/indoor_outdorr_map.png', 'work', ''],
+      ['Chance Constrained MPC', 'Multi-agent path planning', 'Nov – Dec 2022', 'assets/img/chance_constrained_mpc.png', 'work', ''],
+      ['Smart Infant Toy', 'A novel smart sensing medical toy for collecting and classifying infant interactions', 'Nov 2021 – Present', 'assets/img/lossy_sensor_lattice.png', 'work', 'Abstract accepted, Frontiers'],
+      ['NLMS on FPGA', 'Real-time implementation of a scalable 24-bit Non-Local Means Shift algorithm on FPGA', 'May – Jul 2019', '', 'work', ''],
+      ['3D Scene Flow', 'AR Iron Man mask', 'Sep – Dec 2021', 'assets/img/Rithwik_output_image.png', 'work', ''],
+      ['RL for Drones', 'Reinforcement learning to control drone flight', 'Apr – May 2022', 'assets/img/RL_drone_hover.png', 'work', ''],
+      ['Automatic Waste Segregation', 'Undergraduate thesis', 'Aug 2019 – Apr 2020', '', 'work', ''],
+      ['Oxygen Concentrator', 'DIY garage project during COVID', '2020 – 2021', 'assets/img/oxygen_conc2.jpg', 'fun', '']
+    ].map(([title, desc, date, img, cat, award], i) => ({ title, desc, date, img, cat, award, hasImg: !!img, noImg: !img, num: String(i + 1).padStart(2, '0') }));
+    const f = this.state.filter;
+    let projects = f === 'all' ? all : all.filter(p => p.cat === f);
+    if (!(this.props.showAllProjects ?? true)) projects = projects.slice(0, 6);
+    const anim = this.props.animations ?? true;
+    const set = filter => () => this.setState({ filter });
+    const pages = ['home', 'builds', 'workshop', 'timeline', 'travels', 'contact'];
+    const page = pages.includes(this.state.page) ? this.state.page : 'home';
+    const go = {}, cur = {};
+    pages.forEach(p => {
+      go[p] = e => { e.preventDefault(); history.replaceState(null, '', p === 'home' ? '#/' : '#/' + p); this.setState({ page: p }); window.scrollTo(0, 0); };
+      cur[p] = p === page ? 'page' : undefined;
+    });
+    return {
+      clock: this.state.clock || '--:--:--',
+      pulseDot: h('span', { style: { width: 8, height: 8, background: 'var(--color-accent)', display: 'inline-block', animation: anim ? 'pulse 1.6s ease-in-out infinite' : 'none' } }),
+      cursor: h('span', { style: { display: 'inline-block', width: '0.08em', height: '0.8em', marginLeft: '0.08em', background: 'var(--color-accent)', verticalAlign: 'baseline', animation: anim ? 'blink 1s steps(1) infinite' : 'none' } }),
+            projects, count: all.length, isAll: f === 'all', isWork: f === 'work', isFun: f === 'fun',
+      setAll: set('all'), setWork: set('work'), setFun: set('fun'),
+      go, cur, isHome: page === 'home', isBuilds: page === 'builds', isWorkshop: page === 'workshop', isTimeline: page === 'timeline', isTravels: page === 'travels', isContact: page === 'contact',
+      stats: [
+        { k: 'Base', v: 'Boston, MA' },
+        { k: 'Class', v: 'Robotics engineer' },
+        { k: 'Specialty', v: 'Planning · Control · Behavior Trees' },
+        { k: 'Fuel', v: 'Chocolate' },
+        { k: 'Off-duty', v: 'Cycling · Photography' },
+        { k: 'Side quests', v: 'Home Assistant · Exploring the wild' }
+      ],
+      bays: [{ n: '01' }, { n: '02' }, { n: '03' }],
+      experience: [
+        { year: 'Nov 2023 – Now', title: 'Robotics Engineer', org: 'Milwaukee Tool' },
+        { year: 'Jul 2023 – Now', title: 'Research Engineering Intern', org: 'Recupero Robotics' },
+        { year: 'Nov 2021 – Now', title: 'Research Assistant', org: 'Rehabilitation Robotics Lab, UPenn' },
+        { year: 'Jan – Oct 2022', title: 'Researcher', org: 'xLab, University of Pennsylvania' },
+        { year: 'Jul 2020 – Aug 2021', title: 'ASIC Engineer', org: 'NVIDIA, Bangalore' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

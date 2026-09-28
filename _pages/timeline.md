@@ -9,6 +9,7 @@ description: Experience and education of Rithwik Udayagiri.
   <div>
     <h6 class="eyebrow">Career telemetry</h6>
     <h1 class="display">Timeline</h1>
+    <a class="btn btn-secondary btn-split resume-link" href="{{ t.resume | relative_url }}" target="_blank" rel="noopener">Résumé (PDF) <span aria-hidden="true">↗</span></a>
   </div>
   <div class="timeline">
     {%- for e in t.experience %}

@@ -1,12 +1,16 @@
 # Timeline page: experience (newest first) and education.
+resume: assets/pdf/RithwikUdayagiri.pdf
 experience:
-  - dates: Nov 2023 – Now
-    title: Robotics Engineer
+  - dates: Dec 2025 – Now
+    title: Autonomy Engineer
+    org: Luminous Robotics
+  - dates: Nov 2023 – Nov 2025
+    title: Robotics Engineer II
     org: Milwaukee Tool
-  - dates: Jul 2023 – Now
-    title: Research Engineering Intern
+  - dates: Jul – Nov 2023
+    title: Research Engineer
     org: Recupero Robotics
-  - dates: Nov 2021 – Now
+  - dates: Nov 2021 – Nov 2023
     title: Research Assistant
     org: Rehabilitation Robotics Lab, UPenn
   - dates: Jan – Oct 2022

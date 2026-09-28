@@ -337,3 +337,4 @@ strong, b { font-weight: 800; }
 .prose th, .prose td { padding: var(--space-2); border-bottom: 1px solid var(--color-divider); text-align: left; }
 .prose hr { height: 2px; border: 0; background: var(--color-divider); margin: var(--space-6) 0; }
 .back-link { display: inline-block; margin-top: var(--space-6); font-size: 13px; }
+.resume-link { margin-top: var(--space-6); min-width: 200px; }

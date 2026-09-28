@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Automatic Waste Segregation
-description: Undergraduate thesis
+title: "Automatic Waste Segregation"
+description: "Undergraduate thesis"
 img: 
-importance: 9
+importance: 10
 category: work
+date_range: "Aug 2019 – Apr 2020"
 ---
 
-##### August 2019 --- April 2020

@@ -199,6 +199,7 @@ kramdown:
 # Includes & excludes
 include: ['_pages']
 exclude:
+  - design_handoff_site_revamp
   - bin
   - Gemfile
   - Gemfile.lock
@@ -235,7 +236,7 @@ defaults:
 # -----------------------------------------------------------------------------
 
 jekyll-minifier:
-  exclude: ['robots.txt']
+  exclude: ['robots.txt', 'assets/css/modernist.css'] # Sass already compresses it; the CSS minifier breaks calc(var(--x))
   uglifier_args:
     harmony: true
 
@@ -389,3 +390,6 @@ mdb:
 medium_zoom:
   version: "1.0.8"
   integrity: "sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8="
+
+sass:
+  style: compressed

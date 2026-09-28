@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Reinforcement Learning for drones
-description: Control drone flight
+title: "RL for Drones"
+description: "Reinforcement learning to control drone flight"
 img: assets/img/RL_drone_hover.png
-importance: 8
+importance: 9
 category: work
+date_range: "Apr – May 2022"
 ---
 
-##### April 2022 --- May 2022
 

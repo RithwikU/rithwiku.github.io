@@ -1,13 +1,14 @@
 ---
 layout: page
-title: Smart Infant Toy
-description: Inventing a novel smart sensing medical toy for collecting and classifying infant interactions.
+title: "Smart Infant Toy"
+description: "A novel smart sensing medical toy for collecting and classifying infant interactions"
 img: assets/img/lossy_sensor_lattice.png
 importance: 6
 category: work
+date_range: "Nov 2021 – Present"
+award: "Abstract accepted, Frontiers"
 ---
 
-##### November 2021 --- Present
 
 <p>
 &#x2605;<strong> Abstract accepted in <a href="https://www.frontiersin.org/research-topics/52373/artificial-intelligence-and-robotic-applications-for-smart-monitoring-and-assistance-in-healthcare-services">Artificial Intelligence and Robotic Applications for Smart Monitoring and Assistance in Healthcare Services</a></strong>

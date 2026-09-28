@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Indoor-Outdoor Localization
-description: Localizing and navigating indoor and outdoor terrains using a Velodyne 3D LiDAR and GPS
+title: "Indoor-Outdoor Localization"
+description: "Localizing and navigating indoor and outdoor terrains using a Velodyne 3D LiDAR and GPS"
 img: assets/img/indoor_outdorr_map.png
 importance: 4
 category: work
+date_range: "Apr – May 2023"
 ---
 
-##### April 2023 --- May 2023
 
 This project implements algorithms for localization in environments comprising both indoor and outdoor regions
 on the AgileX Scout 2.0 ground robot outfitted with a Velodyne VLP-16 LiDAR and GPS. Our work presents a factor

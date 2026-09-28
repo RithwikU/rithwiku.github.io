@@ -1,0 +1,13 @@
+<footer class="site-footer meta">
+  <span>© {{ site.time | date: '%Y' }} {{ site.first_name | upcase }} {{ site.last_name | upcase }}</span>
+</footer>
+<script>
+  (function () {
+    var el = document.getElementById('bos-clock');
+    if (!el) return;
+    var fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+    function tick() { el.textContent = fmt.format(new Date()); }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>

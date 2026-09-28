@@ -1,10 +1,10 @@
 ---
 layout: page
-title: NLMS on FPGA
-description: Real-time implementation of a scalable 24-bit Non-Local Means Shift(NLMS) algorithm on FPGA
+title: "NLMS on FPGA"
+description: "Real-time implementation of a scalable 24-bit Non-Local Means Shift algorithm on FPGA"
 img: 
 importance: 7
 category: work
+date_range: "May – Jul 2019"
 ---
 
-##### May 2019 --- July 2019

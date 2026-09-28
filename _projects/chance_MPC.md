@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Chance Constrained MPC
-description: Mutli-agent path planning
+title: "Chance Constrained MPC"
+description: "Multi-agent path planning"
 img: assets/img/chance_constrained_mpc.png
 importance: 5
 category: work
+date_range: "Nov – Dec 2022"
 ---
 
-##### November 2022 --- Decmeber 2022
 
 Multi-agent Model Predictive Control is a developing field, and many variations of it are being researched on. In this project we have tested different multi-agent MPC approaches, exploring centralized and decentralized control methods. The decentralized MPC was implemented with probabilistic Chance Constraints to get robust avoidance behavior while
 navigating with uncertain localization. Chance-constrained MPC was enforced by minimizing area of overlap using a convex

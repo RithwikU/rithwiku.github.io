@@ -1,0 +1,16 @@
+{%- comment -%} Sticky header: coordinate strip + nav. Links come from _data/nav.yml. {%- endcomment -%}
+{%- if page.collection == "projects" -%}{%- assign current_url = "/builds/" -%}{%- else -%}{%- assign current_url = page.url -%}{%- endif %}
+<header class="site-header">
+  <div class="wrap">
+    <div class="coords meta">
+      <span>42.3601° N · 71.0589° W</span>
+      <span class="clock">BOS <time id="bos-clock">--:--:--</time></span>
+    </div>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-brand" href="{{ '/' | relative_url }}">{{ site.first_name }}<span>&nbsp;{{ site.last_name }}</span></a>
+      {%- for link in site.data.nav %}
+      <a href="{{ link.url | relative_url }}"{% if current_url == link.url %} aria-current="page"{% endif %}>{{ link.title }}</a>
+      {%- endfor %}
+    </nav>
+  </div>
+</header>

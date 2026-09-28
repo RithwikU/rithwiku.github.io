@@ -1,0 +1,22 @@
+# Profile (home page) content.
+headline: I build robots that find their own way
+name: Rithwik Udayagiri
+location: Boston, MA
+intro: I'm Rithwik, a robotics engineer at Luminous Robotics. I work on motion planning and decision making for autonomous robots.
+bio: I can't sit still. Projects, courses, competitions — I'm always juggling something and hunting for the next thing to learn. That took me from timing closure on NVIDIA silicon to racing go-karts with no driver, and now to teaching an outdoor robot where it is and where to go next.
+portrait: assets/img/UdayagiriRithwik.jpeg
+
+# "About" stats grid
+stats:
+  - key: Base
+    value: Boston, MA
+  - key: Class
+    value: Robotics engineer
+  - key: Specialty
+    value: Planning · Control · Behavior Trees
+  - key: Fuel
+    value: Chocolate
+  - key: Off-duty
+    value: Cycling · Photography
+  - key: Side quests
+    value: Home Assistant · Exploring the wild

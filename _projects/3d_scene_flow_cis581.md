@@ -1,10 +1,10 @@
 ---
 layout: page
-title: 3D scene flow
-description: AR Iron Man mask
-img: /assets/img/Rithwik_output_image.png
+title: "3D Scene Flow"
+description: "AR Iron Man mask"
+img: assets/img/Rithwik_output_image.png
 importance: 8
 category: work
+date_range: "Sep – Dec 2021"
 ---
 
-##### September 2021 --- Decemeber 2021

@@ -1,19 +1,35 @@
 ---
-layout: about
-title: about
+layout: default
+title: Profile
 permalink: /
-subtitle: <span style="color:gray">Robotics Engineer, Milwaukee Tool</span>
-
-profile:
-  align: right
-  image: UdayagiriRithwik.jpeg
-  image_circular: false # crops the image to make it circular
-  address: >
-    <p>Milwaukee, WI</p>
-
-news: false  # includes a list of news items
-selected_papers: false # includes a list of papers marked as "selected={true}"
-social: true  # includes social icons at the bottom of the page
 ---
+{%- assign p = site.data.profile -%}
+<section class="hero">
+  <h1>{{ p.headline }}<span class="dot">.</span><span class="cursor" aria-hidden="true"></span></h1>
+  <div class="ruled hero-strip">
+    <div class="hero-name">
+      <div><strong>{{ p.name }}</strong><span>{{ p.location }}</span></div>
+    </div>
+    <p>{{ p.intro }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-split" href="{{ '/builds/' | relative_url }}">See my builds <span aria-hidden="true">→</span></a>
+      <a class="btn btn-secondary btn-split" href="{{ '/contact/' | relative_url }}">Say hi <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
 
-I am an individual who thrives on being constantly engaged and busy. Embracing a proactive approach to life, I eagerly take on numerous projects and extracurricular activities, allowing me to constantly juggle my time and remain in motion. I have a genuine passion for exploring new endeavors and am always seeking opportunities for growth and learning. This drive for continuous improvement is evident in the diverse range of projects and courses I am currently undertaking as part of my master's program at the University of Pennsylvania. By embracing a multifaceted approach to my education and personal development, I aim to broaden my horizons and make the most of every opportunity that comes my way.
+<section class="split section section-ruled" aria-labelledby="about-title">
+  <div>
+    <h6 class="eyebrow">Operator profile</h6>
+    <h2 class="display" id="about-title">About</h2>
+    <div class="about-portrait grayscale"><img src="{{ p.portrait | relative_url }}" alt="{{ p.name }}"></div>
+  </div>
+  <div class="about-body">
+    <p>{{ p.bio }}</p>
+    <dl class="stats">
+      {%- for s in p.stats %}
+      <div><dt class="meta">{{ s.key }}</dt><dd>{{ s.value }}</dd></div>
+      {%- endfor %}
+    </dl>
+  </div>
+</section>

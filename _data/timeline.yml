@@ -1,0 +1,25 @@
+# Timeline page: experience (newest first) and education.
+experience:
+  - dates: Nov 2023 – Now
+    title: Robotics Engineer
+    org: Milwaukee Tool
+  - dates: Jul 2023 – Now
+    title: Research Engineering Intern
+    org: Recupero Robotics
+  - dates: Nov 2021 – Now
+    title: Research Assistant
+    org: Rehabilitation Robotics Lab, UPenn
+  - dates: Jan – Oct 2022
+    title: Researcher
+    org: xLab, University of Pennsylvania
+  - dates: Jul 2020 – Aug 2021
+    title: ASIC Engineer
+    org: NVIDIA, Bangalore
+
+education:
+  - degree: MS Robotics
+    school: University of Pennsylvania
+    years: 2021–2023
+  - degree: B.Tech
+    school: NIT Karnataka, Surathkal
+    years: 2016–2020

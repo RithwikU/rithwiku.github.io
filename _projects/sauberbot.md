@@ -1,13 +1,14 @@
 ---
 layout: page
-title: SauberBOT
-description: An autonomous garbage collection robot
-img: /assets/img/sauberbot.png
+title: "SauberBOT"
+description: "An autonomous garbage collection robot"
+img: assets/img/sauberbot_group_pic.jpg
 importance: 1
 category: work
+date_range: "Oct 2022 – May 2023"
+award: "1st, SICK TiM10k LiDAR Challenge"
 ---
 
-##### October 2022 --- May 2023
 
 ##### <a href="https://drive.google.com/file/d/1Hxmgf_T4VC9aw6UoFV4gLvduTu-jYDTs/view?usp=sharing">Report</a>
 

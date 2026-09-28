@@ -1,16 +1,23 @@
 ---
 layout: default
 ---
-<!-- page.html -->
-        <div class="post">
-
-          <header class="post-header">
-            <h1 class="post-title">{{ page.title }}</h1>
-            <p class="post-description">{{ page.description }}</p>
-          </header>
-
-          <article>
-            {{ content }}
-          </article>
-
-        </div>
+<article>
+  <header class="page-head">
+    {%- if page.collection == "projects" and page.date_range %}
+    <h6 class="eyebrow">{{ page.date_range }}</h6>
+    {%- endif %}
+    <h1 class="display">{{ page.title }}</h1>
+    {%- if page.description %}
+    <p class="lede">{{ page.description }}</p>
+    {%- endif %}
+    {%- if page.award %}
+    <div class="award"><span>★</span><span>{{ page.award }}</span></div>
+    {%- endif %}
+  </header>
+  <div class="prose">
+    {{ content }}
+    {%- if page.collection == "projects" %}
+    <a class="back-link" href="{{ '/builds/' | relative_url }}">← All builds</a>
+    {%- endif %}
+  </div>
+</article>

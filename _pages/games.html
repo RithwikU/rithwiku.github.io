@@ -1,0 +1,671 @@
+---
+layout: none
+permalink: /games/
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Daily Games</title>
+  <meta name="description" content="A quick-access launcher for daily games.">
+
+  <!-- iOS home-screen app behaviour -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Games">
+  <meta name="theme-color" content="#0e1116">
+  <link rel="apple-touch-icon" href="{{ '/assets/games/icon-180.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/games/icon-512.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/assets/games/manifest.json' | relative_url }}">
+
+  <style>
+    :root {
+      --bg: #0e1116;
+      --bg-elev: #171c24;
+      --bg-elev-2: #1f252f;
+      --line: #2a313d;
+      --text: #e8ecf1;
+      --text-dim: #99a3b2;
+      --text-faint: #6b7480;
+      --accent: #7aa2f7;
+      --danger: #f7768e;
+      --radius: 18px;
+      --tap: 44px;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f4f6fa;
+        --bg-elev: #ffffff;
+        --bg-elev-2: #eceff5;
+        --line: #d9dee8;
+        --text: #1a1f28;
+        --text-dim: #5c6675;
+        --text-faint: #8a939f;
+        --accent: #3b64c4;
+        --danger: #c8384f;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* Safe-area insets live here as bare env() values, never inside calc():
+       the CSS minifier rewrites the hyphens in calc(env(safe-area-inset-x))
+       as subtraction, which invalidates the declaration and drops the padding
+       to zero. Composing two nested paddings avoids arithmetic altogether. */
+    html {
+      min-height: 100%;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+
+    body {
+      font: 400 16px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-text-size-adjust: 100%;
+      overscroll-behavior: none;
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: 14px 16px 28px;
+      max-width: 760px;
+      margin: 0 auto;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    input, textarea { user-select: text; -webkit-user-select: text; }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    /* ---------- header ---------- */
+
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .top-text { flex: 1 1 auto; min-width: 0; }
+
+    .top-title {
+      font-size: 1.32rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .top-date {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin: 2px 0 0;
+    }
+
+    .ring {
+      flex: 0 0 auto;
+      width: 50px;
+      height: 50px;
+      position: relative;
+    }
+
+    .ring svg { display: block; transform: rotate(-90deg); }
+    .ring-track { stroke: var(--line); }
+
+    .ring-fill {
+      stroke: var(--accent);
+      stroke-linecap: round;
+      transition: stroke-dashoffset .35s ease;
+    }
+
+    .ring-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-dim);
+    }
+
+    .ring.is-complete .ring-fill { stroke: #9ece6a; }
+    .ring.is-complete .ring-label { color: #9ece6a; }
+
+    .btn-edit {
+      flex: 0 0 auto;
+      min-height: var(--tap);
+      padding: 0 14px;
+      border-radius: 999px;
+      background: var(--bg-elev);
+      border: 1px solid var(--line);
+      color: var(--text-dim);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    body.is-editing .btn-edit {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* ---------- grid ---------- */
+
+    .grid {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (min-width: 480px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 680px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .cell { position: relative; }
+
+    .tile {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+      min-height: 124px;
+      padding: 14px;
+      border-radius: var(--radius);
+      background: var(--bg-elev);
+      border: 1px solid var(--line);
+      color: var(--text);
+      text-decoration: none;
+      transition: transform .12s ease, opacity .2s ease;
+    }
+
+    .tile:active { transform: scale(0.97); }
+
+    .tile-glyph {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    /* Monochrome symbols take the tile accent; colour emoji ignore it. */
+    .tile-glyph.is-symbol { color: var(--tile-accent, var(--accent)); }
+
+    .tile-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .tile-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      overflow-wrap: anywhere;
+    }
+
+    .tile-streak {
+      font-size: 0.72rem;
+      color: var(--text-faint);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cell.is-done .tile {
+      opacity: 0.44;
+      border-color: transparent;
+      background: var(--bg-elev-2);
+    }
+
+    .badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--text-faint);
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+
+    .badge-mark {
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      border: 1.5px solid currentColor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+
+    .cell.is-done .badge { color: #9ece6a; }
+
+    .cell.is-done .badge-mark {
+      background: #9ece6a;
+      border-color: #9ece6a;
+      color: #102a10;
+    }
+
+    /* ---------- edit-mode controls ---------- */
+
+    .edit-bar { display: none; }
+
+    body.is-editing .edit-bar {
+      display: flex;
+      gap: 6px;
+      position: absolute;
+      left: 6px;
+      right: 6px;
+      bottom: 6px;
+      justify-content: space-between;
+    }
+
+    body.is-editing .badge { display: none; }
+    body.is-editing .tile { padding-bottom: 46px; }
+
+    .edit-btn {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: var(--bg-elev-2);
+      border: 1px solid var(--line);
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1;
+    }
+
+    .edit-btn:disabled { opacity: 0.3; }
+    .edit-btn.is-danger { color: var(--danger); }
+
+    /* ---------- add tile ---------- */
+
+    .tile-add {
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border-style: dashed;
+      background: transparent;
+      color: var(--text-dim);
+    }
+
+    .tile-add .tile-glyph { font-size: 1.6rem; }
+
+    .tile-add-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    /* ---------- empty state ---------- */
+
+    .empty {
+      display: none;
+      text-align: center;
+      padding: 34px 18px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+
+    body.is-empty .empty { display: block; }
+    body.is-empty .ring, body.is-empty .btn-edit { display: none; }
+
+    .empty p { margin: 0 0 14px; font-size: 0.92rem; }
+
+    .link-btn {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: underline;
+      min-height: var(--tap);
+    }
+
+    /* ---------- install hint ---------- */
+
+    .hint {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      margin-top: 22px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: var(--bg-elev);
+      border: 1px solid var(--line);
+      font-size: 0.84rem;
+      color: var(--text-dim);
+    }
+
+    .hint.is-shown { display: flex; }
+    .hint p { margin: 0; flex: 1 1 auto; }
+    .hint strong { color: var(--text); font-weight: 600; }
+
+    .hint-close {
+      flex: 0 0 auto;
+      width: var(--tap);
+      height: var(--tap);
+      margin: -10px -12px -10px 0;
+      color: var(--text-faint);
+      font-size: 1.1rem;
+    }
+
+    /* ---------- sheet ---------- */
+
+    .sheet-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease;
+      z-index: 10;
+    }
+
+    .sheet {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 11;
+      background: var(--bg-elev);
+      border-top: 1px solid var(--line);
+      border-radius: 22px 22px 0 0;
+      padding: 20px 18px;
+      transform: translateY(102%);
+      transition: transform .26s cubic-bezier(.32, .72, 0, 1);
+      max-height: 88vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    @media (min-width: 560px) {
+      .sheet {
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        top: 50%;
+        width: 460px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        transform: translate(-50%, -46%);
+        opacity: 0;
+        transition: opacity .18s ease, transform .18s ease;
+      }
+    }
+
+    body.sheet-open .sheet-backdrop { opacity: 1; pointer-events: auto; }
+    body.sheet-open .sheet { transform: translateY(0); }
+
+    @media (min-width: 560px) {
+      body.sheet-open .sheet { transform: translate(-50%, -50%); opacity: 1; }
+    }
+
+    .sheet-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .sheet-title { font-size: 1.05rem; font-weight: 700; margin: 0; }
+
+    .sheet-cancel {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      min-height: var(--tap);
+      padding: 0 4px;
+    }
+
+    .field { margin-bottom: 16px; }
+
+    .field > label {
+      display: block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-faint);
+      margin-bottom: 7px;
+    }
+
+    .field input[type="text"], .field input[type="url"] {
+      width: 100%;
+      min-height: var(--tap);
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .field input:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: -1px;
+      border-color: var(--accent);
+    }
+
+    .picker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 9px;
+    }
+
+    .pick {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      line-height: 1;
+      border-radius: 11px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+    }
+
+    .pick.is-symbol { color: var(--text-dim); }
+    .pick[aria-pressed="true"] { border-color: var(--accent); background: var(--bg-elev-2); }
+
+    /* Fixed 4-up grid rather than flex-wrap: eight swatches otherwise break
+       7 + 1 at iPhone width. The padding/margin pair leaves room for the
+       selected swatch's outer ring without shifting the row. */
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      justify-content: start;
+      gap: 12px;
+      padding: 5px;
+      margin: -5px;
+    }
+
+    .swatch {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 0;
+      box-shadow: 0 0 0 2px transparent;
+    }
+
+    .swatch[aria-pressed="true"] {
+      box-shadow: 0 0 0 3px var(--bg-elev), 0 0 0 5px var(--text);
+    }
+
+    .sheet-error {
+      display: none;
+      color: var(--danger);
+      font-size: 0.84rem;
+      margin: -6px 0 14px;
+    }
+
+    .sheet-error.is-shown { display: block; }
+
+    .sheet-actions { display: flex; gap: 10px; margin-top: 4px; }
+
+    .btn-primary {
+      flex: 1 1 auto;
+      min-height: 48px;
+      border-radius: 13px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+
+    .btn-ghost {
+      flex: 0 0 auto;
+      min-height: 48px;
+      padding: 0 16px;
+      border-radius: 13px;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--danger);
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .btn-ghost[hidden] { display: none; }
+
+    .safe-bottom { height: env(safe-area-inset-bottom); }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .storage-warn {
+      display: none;
+      margin: 0 0 16px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: var(--bg-elev);
+      border: 1px solid var(--danger);
+      color: var(--text-dim);
+      font-size: 0.82rem;
+    }
+
+    .storage-warn.is-shown { display: block; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="top-text">
+      <h1 class="top-title">Daily Games</h1>
+      <p class="top-date" id="today-label"></p>
+    </div>
+
+    <div class="ring" id="ring" role="img" aria-label="Progress today">
+      <svg width="50" height="50" viewBox="0 0 50 50" aria-hidden="true">
+        <circle class="ring-track" cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle>
+        <circle class="ring-fill" id="ring-fill" cx="25" cy="25" r="20" fill="none" stroke-width="4"
+                stroke-dasharray="125.66" stroke-dashoffset="125.66"></circle>
+      </svg>
+      <span class="ring-label" id="ring-label">0/0</span>
+    </div>
+
+    <button class="btn-edit" id="edit-toggle" aria-pressed="false">Edit</button>
+  </header>
+
+  <p class="storage-warn" id="storage-warn">
+    This browser is blocking storage, so changes will be lost when you close the page.
+    Private Browsing is the usual cause.
+  </p>
+
+  <div class="empty" id="empty">
+    <p>No games yet. Add one below, or start from the defaults.</p>
+    <button class="link-btn" id="restore-defaults">Restore starter games</button>
+  </div>
+
+  <ul class="grid" id="grid"></ul>
+
+  <div class="hint" id="hint">
+    <p>Add this to your home screen: tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>.</p>
+    <button class="hint-close" id="hint-close" aria-label="Dismiss">&#10005;</button>
+  </div>
+
+  <div class="sheet-backdrop" id="sheet-backdrop"></div>
+
+  <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" aria-hidden="true">
+    <div class="sheet-head">
+      <h2 class="sheet-title" id="sheet-title">Add a game</h2>
+      <button class="sheet-cancel" id="sheet-cancel">Cancel</button>
+    </div>
+
+    <form id="sheet-form" novalidate>
+      <div class="field">
+        <label for="f-url">Link</label>
+        <input type="url" id="f-url" inputmode="url" autocapitalize="off" autocorrect="off"
+               spellcheck="false" placeholder="example.com/game">
+      </div>
+
+      <div class="field">
+        <label for="f-name">Name</label>
+        <input type="text" id="f-name" autocapitalize="words" placeholder="Filled in from the link">
+      </div>
+
+      <div class="field">
+        <label id="glyph-label">Icon</label>
+        <div class="picker" id="glyph-picker" role="group" aria-labelledby="glyph-label"></div>
+        <label class="sr-only" for="f-glyph">Custom icon character</label>
+        <input type="text" id="f-glyph" maxlength="2" placeholder="Or type any character" style="max-width:220px">
+      </div>
+
+      <div class="field">
+        <label id="accent-label">Colour</label>
+        <div class="swatches" id="accent-picker" role="group" aria-labelledby="accent-label"></div>
+      </div>
+
+      <p class="sheet-error" id="sheet-error" role="alert"></p>
+
+      <div class="sheet-actions">
+        <button type="submit" class="btn-primary" id="sheet-save">Add game</button>
+        <button type="button" class="btn-ghost" id="sheet-delete" hidden>Delete</button>
+      </div>
+      <div class="safe-bottom"></div>
+    </form>
+  </section>
+
+  <script src="{{ '/assets/js/games.js' | relative_url }}" defer></script>
+</body>
+</html>

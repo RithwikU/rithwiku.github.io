@@ -329,6 +329,7 @@ strong, b { font-weight: 800; }
 .prose .row { display: flex; flex-wrap: wrap; gap: var(--space-4); }
 .prose .row > * { flex: 1 1 240px; min-width: 0; }
 .prose video, .prose iframe { max-width: 100%; }
+.prose video { display: block; width: 100%; margin-top: var(--space-4); background: #000; border: 2px solid var(--color-divider); }
 .prose code { font-size: 0.9em; background: var(--color-surface); padding: 0.1em 0.3em; }
 .prose pre { background: var(--color-surface); padding: var(--space-4); overflow: auto; }
 .prose pre code { padding: 0; }

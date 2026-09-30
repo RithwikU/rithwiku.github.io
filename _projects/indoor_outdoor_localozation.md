@@ -3,7 +3,7 @@ layout: page
 title: "Indoor-Outdoor Localization"
 description: "Localizing and navigating indoor and outdoor terrains using a Velodyne 3D LiDAR and GPS"
 img: assets/img/indoor_outdorr_map.png
-importance: 4
+importance: 5
 category: work
 date_range: "Apr – May 2023"
 ---

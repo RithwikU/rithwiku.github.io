@@ -3,7 +3,7 @@ layout: page
 title: "Autonomous EV Go Kart"
 description: "Building, developing and coding an autonomous electric go-kart to race"
 img: assets/img/gokart_purdue.jpeg
-importance: 3
+importance: 4
 category: work
 date_range: "Jan – Oct 2022"
 award: "1st, Purdue Autonomous Karting 2023"

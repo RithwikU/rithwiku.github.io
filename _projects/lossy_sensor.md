@@ -3,7 +3,7 @@ layout: page
 title: "Smart Infant Toy"
 description: "A novel smart sensing medical toy for collecting and classifying infant interactions"
 img: assets/img/lossy_sensor_lattice.png
-importance: 6
+importance: 7
 category: work
 date_range: "Nov 2021 – Present"
 award: "Abstract accepted, Frontiers"

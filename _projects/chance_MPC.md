@@ -3,7 +3,7 @@ layout: page
 title: "Chance Constrained MPC"
 description: "Multi-agent path planning"
 img: assets/img/chance_constrained_mpc.png
-importance: 5
+importance: 6
 category: work
 date_range: "Nov – Dec 2022"
 ---

@@ -15,7 +15,18 @@ description: Experience and education of Rithwik Udayagiri.
     {%- for e in t.experience %}
     <div class="tl-row">
       <span class="tl-date">{{ e.dates }}</span>
-      <div><div class="tl-title">{{ e.title }}</div><div class="tl-org">{{ e.org }}</div></div>
+      {%- if e.roles.size > 1 or e.grouped %}
+      <div>
+        <div class="tl-title">{{ e.org }}</div>
+        <ol class="tl-roles">
+          {%- for r in e.roles %}
+          <li><div class="tl-role">{{ r.title }}</div><div class="tl-org">{{ r.dates }}</div></li>
+          {%- endfor %}
+        </ol>
+      </div>
+      {%- else %}
+      <div><div class="tl-title">{{ e.roles[0].title }}</div><div class="tl-org">{{ e.org }}</div></div>
+      {%- endif %}
     </div>
     {%- endfor %}
     <div class="tl-row major">

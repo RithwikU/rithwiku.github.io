@@ -323,7 +323,7 @@ strong, b { font-weight: 800; }
 .prose h5 { color: var(--color-accent-400); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
 .prose > :first-child { margin-top: 0; }
 .prose ul, .prose ol { padding-left: 1.2em; }
-.prose img { filter: grayscale(1) contrast(1.08); height: auto; border: 2px solid var(--color-divider); }
+.prose img { height: auto; border: 2px solid var(--color-divider); }
 .prose figure { margin: var(--space-4) 0; }
 .prose .caption, .prose figcaption { font-size: 12px; color: var(--color-neutral-400); margin: var(--space-2) 0 var(--space-6); }
 .prose .row { display: flex; flex-wrap: wrap; gap: var(--space-4); }

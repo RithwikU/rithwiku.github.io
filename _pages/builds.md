@@ -22,7 +22,7 @@ description: Robots, racers and side projects by Rithwik Udayagiri.
     {%- capture num %}{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}{% endcapture %}
     <a class="build" href="{{ project.url | relative_url }}" data-category="{{ project.category }}">
       {%- if project.img and project.img != "" %}
-      <div class="build-img grayscale"><img src="{{ project.img | prepend: '/' | replace: '//', '/' | relative_url }}" alt="{{ project.title }}" loading="lazy"></div>
+      <div class="build-img"><img src="{{ project.img | prepend: '/' | replace: '//', '/' | relative_url }}" alt="{{ project.title }}" loading="lazy"></div>
       {%- else %}
       <div class="build-img empty"><span aria-hidden="true">{{ num }}</span></div>
       {%- endif %}

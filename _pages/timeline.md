@@ -12,6 +12,7 @@ description: Experience and education of Rithwik Udayagiri.
     <a class="btn btn-secondary btn-split resume-link" href="{{ t.resume | relative_url }}" target="_blank" rel="noopener">Résumé (PDF) <span aria-hidden="true">↗</span></a>
   </div>
   <div class="timeline">
+    <h6 class="tl-heading">Experience</h6>
     {%- for e in t.experience %}
     <div class="tl-row">
       <span class="tl-date">{{ e.dates }}</span>
@@ -25,13 +26,23 @@ description: Experience and education of Rithwik Udayagiri.
       </div>
     </div>
     {%- endfor %}
-    <div class="tl-row major">
-      <span class="tl-date">Education</span>
-      <div class="tl-training">
-        {%- for ed in t.education %}
-        <span><strong>{{ ed.degree }}</strong> — {{ ed.school }}, {{ ed.years }}</span>
-        {%- endfor %}
+    <h6 class="tl-heading">Education</h6>
+    {%- for ed in t.education %}
+    <div class="tl-row{% if forloop.first %} major{% endif %}">
+      <span class="tl-date">{{ ed.dates }}</span>
+      <div>
+        <div class="tl-title">{{ ed.school }}</div>
+        <div class="tl-org">{{ ed.department }}</div>
+        <ol class="tl-roles">
+          <li><div class="tl-role">{{ ed.degree }}</div><div class="tl-org">GPA {{ ed.gpa }}</div></li>
+        </ol>
+        <ul class="tl-courses" aria-label="Coursework">
+          {%- for c in ed.courses %}
+          <li>{{ c }}</li>
+          {%- endfor %}
+        </ul>
       </div>
     </div>
+    {%- endfor %}
   </div>
 </section>

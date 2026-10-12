@@ -234,7 +234,10 @@ strong, b { font-weight: 800; }
   border-left: 1px solid var(--color-divider); display: flex; flex-direction: column; gap: var(--space-3);
 }
 .tl-role { font-weight: 600; font-size: 15px; }
-.tl-training { font-size: 14px; display: flex; flex-direction: column; gap: var(--space-1); }
+.tl-heading { margin: 0 0 var(--space-3); color: var(--color-neutral-400); }
+.tl-row + .tl-heading { margin-top: var(--space-8); }
+.tl-courses { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.tl-courses li { font-size: 12px; line-height: 1.35; padding: 3px 10px; border: 1px solid var(--color-divider); color: var(--color-neutral-300); }
 
 /* — travels — */
 .travels-intro { margin-bottom: var(--space-6); }

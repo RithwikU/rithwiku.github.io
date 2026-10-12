@@ -38,9 +38,22 @@ experience:
         dates: Jul 2020 – May 2021
 
 education:
-  - degree: MS Robotics
-    school: University of Pennsylvania
-    years: 2021–2023
-  - degree: B.Tech
-    school: NIT Karnataka, Surathkal
-    years: 2016–2020
+  - school: University of Pennsylvania
+    department: School of Engineering and Applied Science
+    degree: Master of Science in Engineering in Robotics
+    dates: Sep 2021 – May 2023
+    gpa: 3.87 / 4.0
+    courses:
+      - Control, Optimization and Motion Planning for Autonomous Systems
+      - Machine Perception
+      - Sensor Fusion and Localization
+  - school: National Institute of Technology Karnataka
+    department: Surathkal, India
+    degree: Bachelor of Technology in Electronics and Communication
+    dates: Aug 2016 – May 2020
+    gpa: 9.25 / 10.0
+    courses:
+      - Data Structures & Algorithms
+      - Control Systems
+      - Dynamical Systems
+      - Digital System Design

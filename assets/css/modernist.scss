@@ -7,8 +7,9 @@
 :root {
   --color-bg: #201e1d;
   --color-surface: #2d2b2b;
-  --color-text: #f3f2f2;
+  --color-text: #f5efe6; // warm cream
   --color-accent: #ec3013;
+  --color-warm: #f0b45a; // ochre, second accent for the serif words
   --color-divider: color-mix(in srgb, #f3f2f2 30%, transparent);
   // Opaque version of the divider, for rules drawn with box-shadow between grid cells.
   --color-rule: color-mix(in srgb, #f3f2f2 30%, #201e1d);
@@ -27,6 +28,7 @@
 
   --font-heading: "Archivo", system-ui, sans-serif;
   --font-body: "Archivo", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
 
   --space-1: 4px;
   --space-2: 8px;
@@ -149,6 +151,10 @@ strong, b { font-weight: 800; }
   margin: 0 0 72px; max-width: 1100px;
 }
 .hero h1 .dot { color: var(--color-accent); }
+// Editorial accent: a few words per page in italic serif.
+h1 em, h2 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+.hero h1 em, .display em { color: var(--color-warm); }
+.contact h1 em { color: #201e1d; }
 .cursor {
   display: inline-block; width: 0.08em; height: 0.8em; margin-left: 0.08em;
   background: var(--color-accent); vertical-align: baseline;

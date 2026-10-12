@@ -5,10 +5,10 @@ permalink: /
 ---
 {%- assign p = site.data.profile -%}
 <section class="hero">
-  <h1>{{ p.headline }}<span class="dot">.</span><span class="cursor" aria-hidden="true"></span></h1>
+  <h1>{{ site.first_name }} <em>{{ site.last_name }}</em><span class="dot">.</span><span class="cursor" aria-hidden="true"></span></h1>
   <div class="ruled hero-strip">
     <div class="hero-name">
-      <div><strong>{{ p.name }}</strong><span>{{ p.location }}</span></div>
+      <div><strong>{{ p.role }}</strong><span>{{ p.location }}</span></div>
     </div>
     <p>{{ p.intro }}</p>
     <div class="hero-actions">
@@ -20,9 +20,9 @@ permalink: /
 
 <section class="split section section-ruled" aria-labelledby="about-title">
   <div>
-    <h6 class="eyebrow">Operator profile</h6>
-    <h2 class="display" id="about-title">About</h2>
-    <div class="about-portrait grayscale"><img src="{{ p.portrait | relative_url }}" alt="{{ p.name }}"></div>
+    <h6 class="eyebrow">Who I am</h6>
+    <h2 class="display" id="about-title">About <em>me</em></h2>
+    <div class="about-portrait"><img src="{{ p.portrait | relative_url }}" alt="{{ p.name }}"></div>
   </div>
   <div class="about-body">
     <p>{{ p.bio }}</p>

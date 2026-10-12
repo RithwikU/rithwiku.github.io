@@ -9,7 +9,7 @@ description: Get in touch with Rithwik Udayagiri.
   <div class="contact-inner">
     <div>
       <div class="contact-kicker">// Open a channel</div>
-      <h1 class="display">Let's build something weird.</h1>
+      <h1 class="display">Let's build something <em>weird</em>.</h1>
     </div>
     <div class="channels">
       <a class="primary" href="mailto:{{ site.email }}"><span>{{ site.email }}</span><span aria-hidden="true">→</span></a>

@@ -33,4 +33,4 @@ description: Interactive projects Rithwik Udayagiri is currently working on.
     {%- endfor %}
   </div>
 </section>
-<script src="{{ '/assets/js/squiggle.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/squiggle.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>

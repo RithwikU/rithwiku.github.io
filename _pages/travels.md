@@ -51,4 +51,4 @@ description: Places Rithwik Udayagiri has been.
 <script id="travels-data" type="application/json">{{ site.data.travels | jsonify }}</script>
 <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
-<script src="{{ '/assets/js/travels.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/travels.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>

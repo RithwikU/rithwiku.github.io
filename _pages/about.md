@@ -5,7 +5,9 @@ permalink: /
 ---
 {%- assign p = site.data.profile -%}
 <section class="hero">
-  <h1>{{ site.first_name }} <em>{{ site.last_name }}</em><span class="dot">.</span><span class="cursor" aria-hidden="true"></span></h1>
+  <h1 class="visually-hidden">{{ site.first_name }} {{ site.last_name }}</h1>
+  {%- comment %} Reserved for a hero image or animation. {% endcomment %}
+  <div class="hero-media" aria-hidden="true"></div>
   <div class="ruled hero-strip">
     <div class="hero-name">
       <div><strong>{{ p.role }}</strong><span>{{ p.location }}</span></div>

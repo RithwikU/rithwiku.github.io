@@ -2,10 +2,8 @@
 resume: assets/pdf/RithwikUdayagiri.pdf
 experience:
   # One entry per company. List roles newest first; `dates` is the whole stint.
-  # Companies with several roles (or `grouped: true`) show the company name with roles nested under it.
   - org: Luminous Robotics
     dates: Dec 2025 – Now
-    grouped: true
     roles:
       - title: Autonomy Engineer
         dates: Dec 2025 – Now

@@ -7,15 +7,10 @@ importance: 2
 category: work
 date_range: "Jan – May 2023"
 award: "1st reactive race · 3rd map-based"
+highlights:
+  - "First place in the reactive methods race using Follow The Gap"
+  - "Third place in the indoor map-based race"
 ---
-
-
-<p>
-&#x2605;<strong> Achieved first place in the reactive methods race using Follow The Gap</strong><br>
-&#x2605;<strong> Achieved third place in the indoor map-based race</strong>
-</p>
-
-
 The car is equipped with a 2D LiDAR, VESC and Jetson NX as the compute platform.
 ### Follow The Gap
 This algorithm is classified as a <u>reactive driving method</u>, as it identifies the widest gap in the upcoming path and moves in that direction. The gap is found by filtering and thresholding the LiDAR readings.

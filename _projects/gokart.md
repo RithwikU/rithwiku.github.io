@@ -7,13 +7,9 @@ importance: 4
 category: work
 date_range: "Jan – Oct 2022"
 award: "1st, Purdue Autonomous Karting 2023"
+highlights:
+  - "First place at the 2023 Purdue Autonomous Karting Series"
 ---
-
-
-<p>
-&#x2605;<strong> Achieved first place at the 2023 Purdue Autonomous Karting Series</strong>
-</p>
-
 #### Technology
 I contributed to the control, motion planning, localization, sensor integration, sensor fusion and manufacturing of the gokart.
 

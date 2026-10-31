@@ -1,23 +1,65 @@
 ---
 layout: default
 ---
+{%- if page.collection == "projects" %}
 <article>
   <header class="page-head">
-    {%- if page.collection == "projects" and page.date_range %}
-    <h6 class="eyebrow">{{ page.date_range }}</h6>
-    {%- endif %}
     <h1 class="display">{{ page.title }}</h1>
     {%- if page.description %}
     <p class="lede">{{ page.description }}</p>
     {%- endif %}
-    {%- if page.award %}
-    <div class="award"><span>★</span><span>{{ page.award }}</span></div>
+  </header>
+  <div class="project">
+    <aside class="project-side">
+      {%- if page.date_range %}
+      <div class="project-block"><h6 class="meta">When</h6><p>{{ page.date_range }}</p></div>
+      {%- endif %}
+      {%- if page.highlights %}
+      <div class="project-block">
+        <h6 class="meta">Recognition</h6>
+        <ul class="project-highlights">
+          {%- for h in page.highlights %}
+          <li><span aria-hidden="true">★</span><span>{{ h }}</span></li>
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endif %}
+      {%- if page.links %}
+      <div class="project-block">
+        <h6 class="meta">Links</h6>
+        <ul class="project-links">
+          {%- for l in page.links %}
+          {%- assign first = l.url | slice: 0 %}
+          <li><a href="{% if first == '/' %}{{ l.url | relative_url }}{% else %}{{ l.url }}{% endif %}"><span>{{ l.label }}</span><span aria-hidden="true">↗</span></a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endif %}
+      <a class="back-link" href="{{ '/builds/' | relative_url }}">← All builds</a>
+    </aside>
+    <div class="prose">
+      {%- assign body = content | strip %}
+      {%- if body == "" %}
+        {%- if page.img and page.img != "" %}
+        <img src="{{ page.img | prepend: '/' | replace: '//', '/' | relative_url }}" alt="{{ page.title }}">
+        {%- endif %}
+        <p>Full write-up coming soon.</p>
+      {%- else %}
+      {{ content }}
+      {%- endif %}
+    </div>
+  </div>
+</article>
+{%- else %}
+<article>
+  <header class="page-head">
+    <h1 class="display">{{ page.title }}</h1>
+    {%- if page.description %}
+    <p class="lede">{{ page.description }}</p>
     {%- endif %}
   </header>
   <div class="prose">
     {{ content }}
-    {%- if page.collection == "projects" %}
-    <a class="back-link" href="{{ '/builds/' | relative_url }}">← All builds</a>
-    {%- endif %}
   </div>
 </article>
+{%- endif %}

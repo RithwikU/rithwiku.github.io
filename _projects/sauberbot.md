@@ -7,21 +7,22 @@ importance: 1
 category: work
 date_range: "Oct 2022 – May 2023"
 award: "1st, SICK TiM10k LiDAR Challenge"
+highlights:
+  - "Achieved first place in the SICK TiM10k LiDAR Challenge 2023"
+links:
+  - label: "Report"
+    url: "https://drive.google.com/file/d/1_o_ptk76ZW2YvvqLIIROH3Ah2TJLgjkj/view?usp=sharing"
+  - label: "Proposal"
+    url: "https://drive.google.com/file/d/1Hxp43QTz0KJwqwQGnAboDa4r6M6RePEB/view?usp=sharing"
+  - label: "UPenn GRASP Lab article"
+    url: "https://www.grasp.upenn.edu/news/robotics-masters-students-take-on-sicks-tim10k-challenge"
+  - label: "InDro Robotics article"
+    url: "https://indrorobotics.ca/upenn-robotics-team-cleans-up-at-sick-lidar-competition/"
+  - label: "SICK article"
+    url: "https://sickusablog.com/university-students-use-sick-lidar-solve-real-world-problems/?utm_campaign=Oktopost-USA+-+TiM10K&utm_content=Oktopost-linkedin&utm_medium=social&utm_source=linkedin"
+  - label: "TiM10k Challenge"
+    url: "https://www.sick.com/us/en/tim10k/w/tim10k/"
 ---
-
-
-##### <a href="https://drive.google.com/file/d/1_o_ptk76ZW2YvvqLIIROH3Ah2TJLgjkj/view?usp=sharing">Report</a>
-
-###### <a href="https://www.grasp.upenn.edu/news/robotics-masters-students-take-on-sicks-tim10k-challenge">UPenn GRASP Lab article</a>
-
-###### <a href="https://indrorobotics.ca/upenn-robotics-team-cleans-up-at-sick-lidar-competition/">InDro Robotics article</a>
-
-###### <a href="https://sickusablog.com/university-students-use-sick-lidar-solve-real-world-problems/?utm_campaign=Oktopost-USA+-+TiM10K&utm_content=Oktopost-linkedin&utm_medium=social&utm_source=linkedin">SICK article</a>
-
-
-<p>
-&#x2605;<strong> Achieved first place in the <a href="https://www.sick.com/us/en/tim10k/w/tim10k/">SICK TiM10k LiDAR Challenge 2023</a></strong>
-</p>
 This challenge required us to submit a detailed <a href="https://drive.google.com/file/d/1Hxp43QTz0KJwqwQGnAboDa4r6M6RePEB/view?usp=sharing">proposal</a> of a product that utilizes a LiDAR and solves some issue.
 
 

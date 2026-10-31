@@ -6,10 +6,12 @@ img: assets/img/pitch_control_car.jpg
 importance: 3
 category: work
 date_range: "Apr – May 2023"
+links:
+  - label: "Report"
+    url: "/assets/pdf/ESE_615_Final_Project_Report.pdf"
+  - label: "Github"
+    url: "https://github.com/RithwikU/f1tenth_pitch_control"
 ---
-
-<a href="{{ '/assets/pdf/ESE_615_Final_Project_Report.pdf' | relative_url }}">Report</a> · <a href="https://github.com/RithwikU/f1tenth_pitch_control">Github</a>
-
 Most autonomous racing stacks plan in a 2D bird's-eye view and ignore the vertical axis. Off-road racing doesn't have that luxury: when a car goes airborne off a jump, the angle it lands at decides whether it keeps racing or tumbles. This ESE 615 final project, with Manasa Sathyan, Mengti Sun and Nicholas Gurnard, controls the pitch of an F1TENTH car mid-air by spinning its wheels, so it lands at the angle of the ramp it's heading for.
 
 <figure>

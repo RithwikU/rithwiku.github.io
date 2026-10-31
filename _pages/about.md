@@ -10,7 +10,7 @@ permalink: /
   <div class="hero-media" aria-hidden="true"></div>
   <div class="ruled hero-strip">
     <div class="hero-name">
-      <div><strong>{{ p.role }}</strong><span>{{ p.location }}</span></div>
+      <div><strong>{{ p.role }}</strong><strong>{{ p.company }}</strong><span>{{ p.location }}</span></div>
     </div>
     <p>{{ p.intro }}</p>
     <div class="hero-actions">

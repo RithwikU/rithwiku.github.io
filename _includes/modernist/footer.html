@@ -1,5 +1,5 @@
 <footer class="site-footer meta">
-  <span>© {{ site.time | date: '%Y' }} {{ site.first_name | upcase }} {{ site.last_name | upcase }}</span>
+  <span id="footer-mark">© {{ site.time | date: '%Y' }} {{ site.first_name | upcase }} {{ site.last_name | upcase }}</span>
 </footer>
 <script>
   (function () {
@@ -9,5 +9,19 @@
     function tick() { el.textContent = fmt.format(new Date()); }
     tick();
     setInterval(tick, 1000);
+  })();
+  // Easter egg: type "games" anywhere, or tap the copyright line 5 times quickly.
+  (function () {
+    var url = '{{ '/games/' | relative_url }}', word = 'games', typed = '', taps = 0, timer;
+    document.addEventListener('keydown', function (e) {
+      if (e.ctrlKey || e.metaKey || e.altKey || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+      typed = (typed + e.key).slice(-word.length).toLowerCase();
+      if (typed === word) location.href = url;
+    });
+    document.getElementById('footer-mark').addEventListener('click', function () {
+      clearTimeout(timer);
+      if (++taps === 5) location.href = url;
+      timer = setTimeout(function () { taps = 0; }, 1500);
+    });
   })();
 </script>

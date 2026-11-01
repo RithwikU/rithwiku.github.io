@@ -32,13 +32,27 @@
   // fixed-colour emoji. See isSymbolGlyph below.
   var SYMBOL_PICKS = ['\u2B22', '\u2B21', '\u25C6', '\u25CF', '\u25B2', '\u2726', '\u25C8', '\u2715'];
 
+  // Bump SEED_VERSION whenever an entry is added below, and tag that entry with
+  // the new number in `since`. Installs that already hold a list pick up only
+  // the entries newer than the version they last saw -- see loadState.
+  var SEED_VERSION = 3;
+
   var SEED = [
-    { name: 'Poople', url: 'https://poople.io/', glyph: '\uD83D\uDCA9', accent: '#e0af68' },
-    { name: 'Dialed', url: 'https://dialed.gg/color?d=1&s=38.90', glyph: '\uD83C\uDFA8', accent: '#bb9af7' },
-    { name: 'Magnitudle', url: 'https://magnitudle.com/', glyph: '\uD83D\uDCC8', accent: '#9ece6a' },
-    { name: 'Cutle', url: 'https://pfiffel.com/cutle/', glyph: '\uD83D\uDD2A', accent: '#a6adc8' },
-    { name: 'Hex Hunt', url: 'https://thehexhunt.com/', glyph: '\u2B22', accent: '#7dcfff' },
-    { name: 'Worldle', url: 'https://worldle.teuteuf.fr/', glyph: '\uD83C\uDF0D', accent: '#7aa2f7' }
+    { since: 1, name: 'Poople', url: 'https://poople.io/', glyph: '\uD83D\uDCA9', accent: '#e0af68' },
+    { since: 1, name: 'Dialed', url: 'https://dialed.gg/color?d=1&s=38.90', glyph: '\uD83C\uDFA8', accent: '#bb9af7' },
+    { since: 1, name: 'Magnitudle', url: 'https://magnitudle.com/', glyph: '\uD83D\uDCC8', accent: '#9ece6a' },
+    { since: 1, name: 'Cutle', url: 'https://pfiffel.com/cutle/', glyph: '\uD83D\uDD2A', accent: '#a6adc8' },
+    { since: 1, name: 'Hex Hunt', url: 'https://thehexhunt.com/', glyph: '\u2B22', accent: '#7dcfff' },
+    { since: 1, name: 'Worldle', url: 'https://worldle.teuteuf.fr/', glyph: '\uD83C\uDF0D', accent: '#7aa2f7' },
+    // '#' is codepoint 35, inside SYMBOL_RANGES, so it renders tinted with the
+    // tile accent rather than as a flat emoji.
+    { since: 2, name: 'Geo Grid', url: 'https://www.geogridgame.com/', glyph: '#', accent: '#ff9e64' },
+    { since: 2, name: 'Perceptle', url: 'https://perceptle.com/', glyph: '\uD83D\uDC40', accent: '#f7768e' },
+    // U+1FAD7 pouring liquid. Emoji 14.0, so it needs iOS 15.4+ / macOS 12.3+;
+    // older platforms draw a tofu box and want '\uD83E\uDD5B' instead. The accent
+    // is cosmetic here -- only .tile-glyph.is-symbol reads --tile-accent, so a
+    // colour emoji ignores it.
+    { since: 3, name: 'Pourly', url: 'https://playpourly.com/', glyph: '\uD83E\uDED7', accent: '#7dcfff' }
   ];
 
   /* ---------------------------------------------------------------- storage */
@@ -194,6 +208,7 @@
   var games = [];
   var progress = {};
   var ui = {};
+  var seedVersion = SEED_VERSION;
   var editing = false;      // grid edit mode
   var sheetId = null;       // id being edited in the sheet, null when adding
   var nameTouched = false;
@@ -203,8 +218,28 @@
   }
 
   function seedGames() {
-    return SEED.map(function (s) {
-      return { id: uid(), name: s.name, url: s.url, glyph: s.glyph, accent: s.accent };
+    // Via sanitizeGame so seeded URLs are normalised exactly like stored ones,
+    // which is what makes the dedupe in mergeNewSeeds reliable.
+    return SEED.map(sanitizeGame).filter(function (g) { return g !== null; });
+  }
+
+  // Append seeds introduced since the version this install last saw. Only
+  // entries newer than `seen` are considered and seedVersion advances on the
+  // same write, so anything deleted afterwards stays deleted.
+  function mergeNewSeeds(seen) {
+    // A list emptied on purpose stays empty; "restore starter games" is the way
+    // back. Bump the version but add nothing.
+    if (!games.length) return;
+
+    var have = {};
+    games.forEach(function (g) { have[g.url] = true; });
+
+    SEED.forEach(function (s) {
+      if ((s.since || 1) <= seen) return;
+      var game = sanitizeGame(s);
+      if (!game || have[game.url]) return;
+      games.push(game);
+      have[game.url] = true;
     });
   }
 
@@ -233,10 +268,19 @@
       // Absent, not merely empty: first ever run. An empty list the user made
       // on purpose must stay empty.
       games = seedGames();
-      writeJSON(KEY_GAMES, { version: 1, games: games });
+      seedVersion = SEED_VERSION;
+      saveGames();
     } else {
       var list = stored && Array.isArray(stored.games) ? stored.games : [];
       games = list.map(sanitizeGame).filter(function (g) { return g !== null; });
+
+      // Installs predating seedVersion are treated as having seen version 1.
+      var seen = typeof stored.seedVersion === 'number' ? stored.seedVersion : 1;
+      seedVersion = SEED_VERSION;
+      if (seen < SEED_VERSION) {
+        mergeNewSeeds(seen);
+        saveGames();
+      }
     }
 
     var prog = readJSON(KEY_PROG);
@@ -247,7 +291,9 @@
   }
 
   function saveGames() {
-    writeJSON(KEY_GAMES, { version: 1, games: games });
+    // seedVersion must ride along on every write, or the next save drops it and
+    // the merge runs again on the following load.
+    writeJSON(KEY_GAMES, { version: 1, seedVersion: seedVersion, games: games });
   }
 
   function saveProgress() {

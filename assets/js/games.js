@@ -35,7 +35,7 @@
   // Bump SEED_VERSION whenever an entry is added below, and tag that entry with
   // the new number in `since`. Installs that already hold a list pick up only
   // the entries newer than the version they last saw -- see loadState.
-  var SEED_VERSION = 2;
+  var SEED_VERSION = 3;
 
   var SEED = [
     { since: 1, name: 'Poople', url: 'https://poople.io/', glyph: '\uD83D\uDCA9', accent: '#e0af68' },
@@ -47,7 +47,12 @@
     // '#' is codepoint 35, inside SYMBOL_RANGES, so it renders tinted with the
     // tile accent rather than as a flat emoji.
     { since: 2, name: 'Geo Grid', url: 'https://www.geogridgame.com/', glyph: '#', accent: '#ff9e64' },
-    { since: 2, name: 'Perceptle', url: 'https://perceptle.com/', glyph: '\uD83D\uDC40', accent: '#f7768e' }
+    { since: 2, name: 'Perceptle', url: 'https://perceptle.com/', glyph: '\uD83D\uDC40', accent: '#f7768e' },
+    // U+1FAD7 pouring liquid. Emoji 14.0, so it needs iOS 15.4+ / macOS 12.3+;
+    // older platforms draw a tofu box and want '\uD83E\uDD5B' instead. The accent
+    // is cosmetic here -- only .tile-glyph.is-symbol reads --tile-accent, so a
+    // colour emoji ignores it.
+    { since: 3, name: 'Pourly', url: 'https://playpourly.com/', glyph: '\uD83E\uDED7', accent: '#7dcfff' }
   ];
 
   /* ---------------------------------------------------------------- storage */

@@ -5,6 +5,7 @@ description: "Measuring a radar's error against the positions aircraft broadcast
 img: assets/img/radar_bias_ppi.png
 importance: 14
 category: work
+date_range: "May – Aug 2017"
 links:
   - label: "Slides"
     url: "https://docs.google.com/presentation/d/1rhjrqrXO5Bfbovmx968eWQ6GJ-b7poy9PmDGl-mlS0k/edit?usp=sharing"

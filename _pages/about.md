@@ -20,14 +20,12 @@ permalink: /
   </div>
 </section>
 
-<section class="split section section-ruled" aria-labelledby="about-title">
+<section class="split section section-ruled" aria-label="About">
   <div>
     <h6 class="eyebrow">Who I am</h6>
-    <h2 class="display" id="about-title">About <em>me</em></h2>
     <div class="about-portrait"><img src="{{ p.portrait | relative_url }}" alt="{{ p.name }}"></div>
   </div>
   <div class="about-body">
-    <p>{{ p.bio }}</p>
     <dl class="stats">
       {%- for s in p.stats %}
       <div><dt class="meta">{{ s.key }}</dt><dd>{{ s.value }}</dd></div>

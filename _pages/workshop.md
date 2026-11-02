@@ -2,7 +2,7 @@
 layout: default
 title: Workshop
 permalink: /workshop/
-description: Things Rithwik Udayagiri is currently dabbling in.
+description: Half-baked ideas and side experiments by Rithwik Udayagiri.
 ---
 <section class="section section-ruled">
   <div class="split">
@@ -10,7 +10,7 @@ description: Things Rithwik Udayagiri is currently dabbling in.
       <h6 class="eyebrow">Under construction</h6>
       <h1 class="display">The Workshop</h1>
     </div>
-    <p class="lede">Things I'm currently dabbling in.</p>
+    <p class="lede lede-end">Half-baked ideas and side experiments.</p>
   </div>
   <div class="bays">
     <div class="bay bay-live">
@@ -21,9 +21,9 @@ description: Things Rithwik Udayagiri is currently dabbling in.
       </div>
       <div class="squiggle-stage">
         <canvas id="squiggle" aria-label="Drawing area: draw a path and a small robot drives along it"></canvas>
-        <span class="squiggle-hint meta" id="squiggle-hint">Draw a path. The robot will follow it.</span>
+        <span class="squiggle-hint meta" id="squiggle-hint">Draw a path for the robot</span>
       </div>
-      <p class="bay-note">The robot tracks your line with pure pursuit: it steers toward a point a little way ahead on the path, the same idea behind the F1TENTH and go-kart controllers.</p>
+      <p class="bay-note">Draw any line and the robot chases a point just ahead of it on the path. It's a simple take on pure pursuit, the same steering method behind my F1TENTH car and autonomous go-kart.</p>
     </div>
     {%- for n in (2..3) %}
     <div class="bay">

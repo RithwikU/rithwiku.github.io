@@ -4,14 +4,18 @@
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
   var hint = document.getElementById('squiggle-hint');
-  var css = getComputedStyle(document.documentElement);
-  var color = function (name, fallback) { return css.getPropertyValue(name).trim() || fallback; };
-  var C = {
-    accent: color('--color-accent', '#ec3013'),
-    warm: color('--color-warm', '#f0b45a'),
-    text: color('--color-text', '#f5efe6'),
-    bg: color('--color-bg', '#201e1d')
-  };
+  var C;
+  function readColors() {
+    var css = getComputedStyle(document.documentElement);
+    var color = function (name, fallback) { return css.getPropertyValue(name).trim() || fallback; };
+    C = {
+      accent: color('--color-accent', '#ec3013'),
+      warm: color('--color-warm', '#f0b45a'),
+      text: color('--color-text', '#f5efe6')
+    };
+  }
+  readColors();
+  document.addEventListener('themechange', function () { readColors(); draw(); });
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var LOOKAHEAD = 34;   // px ahead on the path to steer toward
@@ -113,11 +117,11 @@
   function drawRobot() {
     ctx.save();
     ctx.translate(robot.x, robot.y); ctx.rotate(robot.th);
-    ctx.fillStyle = C.bg; // wheels
+    ctx.fillStyle = '#201e1d'; // wheels
     ctx.fillRect(-9, -10, 7, 4); ctx.fillRect(4, -10, 7, 4);
     ctx.fillRect(-9, 6, 7, 4); ctx.fillRect(4, 6, 7, 4);
     ctx.fillStyle = C.accent; ctx.fillRect(-11, -7, 22, 14); // body
-    ctx.fillStyle = C.text; ctx.fillRect(5, -3, 4, 6); // nose
+    ctx.fillStyle = '#f5efe6'; ctx.fillRect(5, -3, 4, 6); // nose
     ctx.restore();
   }
 

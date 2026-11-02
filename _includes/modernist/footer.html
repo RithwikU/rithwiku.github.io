@@ -10,6 +10,22 @@
     tick();
     setInterval(tick, 1000);
   })();
+  (function () {
+    var btn = document.getElementById('theme-toggle'), root = document.documentElement;
+    function label() {
+      var next = root.getAttribute('data-theme') === 'light' ? 'Dark' : 'Light';
+      btn.textContent = next;
+      btn.setAttribute('aria-label', 'Switch to ' + next.toLowerCase() + ' mode');
+    }
+    btn.addEventListener('click', function () {
+      var t = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', t);
+      try { localStorage.setItem('theme', t); } catch (e) {}
+      label();
+      document.dispatchEvent(new Event('themechange'));
+    });
+    label();
+  })();
   // Easter egg: type "games" anywhere, or tap the copyright line 5 times quickly.
   (function () {
     var url = '{{ '/games/' | relative_url }}', word = 'games', typed = '', taps = 0, timer;

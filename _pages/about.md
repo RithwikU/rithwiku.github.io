@@ -10,7 +10,7 @@ permalink: /
     {%- for photo in p.banner %}
     <figure class="filmstrip-slice">
       <img src="{{ photo.image | relative_url }}" alt="{{ photo.alt }}"{% if photo.position %} style="object-position: {{ photo.position }}"{% endif %}>
-      <figcaption class="meta">{{ photo.location }}</figcaption>
+      <figcaption class="meta"><a href="{{ '/travels/' | relative_url }}#{{ photo.location | slugify }}">{{ photo.location }}</a></figcaption>
     </figure>
     {%- endfor %}
   </div>

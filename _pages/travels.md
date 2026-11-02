@@ -10,10 +10,10 @@ description: Places Rithwik Udayagiri has been.
       <h6 class="eyebrow">Places I've been</h6>
       <h1 class="display">Travels</h1>
     </div>
-    <p class="lede">Drag to pan, scroll to zoom, hover a pin for details.<span class="edit-only" hidden> Add a place by typing its coordinates or picking it straight off the map.</span></p>
+    <p class="lede">Pick a place to see what it looked like. Drag to pan, scroll or pinch to zoom.<span class="edit-only" hidden> Add a place by typing its coordinates or picking it straight off the map.</span></p>
   </div>
 
-  <div class="travels-map">
+  <div class="travels-map" data-base="{{ '/' | relative_url }}">
     <div class="map-stage" id="map-stage">
       <svg id="map" role="img" aria-label="World map with pins for places visited"></svg>
       <div class="map-ctrls">
@@ -21,6 +21,11 @@ description: Places Rithwik Udayagiri has been.
         <button type="button" id="zout" title="Zoom out" aria-label="Zoom out">−</button>
         <button type="button" id="zreset" class="reset" title="Reset" aria-label="Reset zoom">⟲</button>
       </div>
+      <ul class="map-legend meta" aria-label="Legend">
+        <li><i class="k-home"></i>Home</li>
+        <li><i class="k-lived"></i>Lived</li>
+        <li><i class="k-visited"></i>Visited</li>
+      </ul>
       <div class="map-hint">Click the map to drop a pin</div>
       <div class="map-tip" id="map-tip"></div>
     </div>
@@ -29,6 +34,16 @@ description: Places Rithwik Udayagiri has been.
         <div><span class="meta">Places</span><div class="map-num" id="n-places">{{ site.data.travels.size }}</div></div>
         <div><span class="meta">Countries</span><div class="map-num" id="n-countries">–</div></div>
       </div>
+      <article class="map-card" id="map-card" hidden>
+        <button type="button" class="map-card-close" id="card-close" aria-label="Close">×</button>
+        <div class="map-card-photos" id="card-photos"></div>
+        <div class="map-card-body">
+          <span class="meta" id="card-meta"></span>
+          <h2 id="card-name"></h2>
+          <p id="card-note"></p>
+          <a class="map-card-album" id="card-album" target="_blank" rel="noopener" hidden>All photos <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
       <ul class="map-list" id="map-list"></ul>
       <form class="map-form" id="map-form" autocomplete="off" hidden>
         <span class="meta">Add a location</span>

@@ -8,23 +8,23 @@ portrait: assets/img/UdayagiriRithwik.jpeg
 
 # Home page banner: one slice per photo. `position` picks which part stays in view.
 banner:
-  - image: assets/img/hero/hero_night_drive.jpg
+  - image: assets/img/Banner/CSC_0326-01.jpeg
     location: Spiti, HP, India
     alt: An SUV parked under star trails at night
     position: 55% center
-  - image: assets/img/hero/hero_cathedral.jpg
+  - image: assets/img/Banner/DSC03869.JPG
     location: Freiburg, Germany
     alt: A cathedral spire rising above old town buildings
     position: center 35%
-  - image: assets/img/hero/hero_mountain_reflection.jpg
+  - image: assets/img/Banner/IMG_1563.jpg
     location: Grand Teton NP, WY, USA
     alt: Snowy peaks reflected in a still river at sunrise
     position: 60% center
-  - image: assets/img/hero/hero_lake_clouds.jpg
+  - image: assets/img/Banner/IMG_20200803_085607_290.jpg
     location: Deepak Tal, HP, India
     alt: Clouds and mountains reflected in a lake
     position: center center
-  - image: assets/img/hero/hero_autumn_valley.jpg
+  - image: assets/img/Banner/IMG_5205.JPG
     location: Franconia, NH, USA
     alt: A lake in an autumn valley seen from a rocky overlook
     position: 55% center

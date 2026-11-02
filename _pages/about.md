@@ -6,8 +6,11 @@ permalink: /
 {%- assign p = site.data.profile -%}
 <section class="hero">
   <h1 class="visually-hidden">{{ site.first_name }} {{ site.last_name }}</h1>
-  {%- comment %} Reserved for a hero image or animation. {% endcomment %}
-  <div class="hero-media" aria-hidden="true"></div>
+  <div class="filmstrip">
+    {%- for photo in p.banner %}
+    <div class="filmstrip-slice"><img src="{{ photo.image | relative_url }}" alt="{{ photo.alt }}"{% if photo.position %} style="object-position: {{ photo.position }}"{% endif %}></div>
+    {%- endfor %}
+  </div>
   <div class="ruled hero-strip">
     <div class="hero-name">
       <div><strong>{{ p.role }}</strong><strong>{{ p.company }}</strong><span>{{ p.location }}</span></div>

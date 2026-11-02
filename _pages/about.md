@@ -8,7 +8,10 @@ permalink: /
   <h1 class="visually-hidden">{{ site.first_name }} {{ site.last_name }}</h1>
   <div class="filmstrip">
     {%- for photo in p.banner %}
-    <div class="filmstrip-slice"><img src="{{ photo.image | relative_url }}" alt="{{ photo.alt }}"{% if photo.position %} style="object-position: {{ photo.position }}"{% endif %}></div>
+    <figure class="filmstrip-slice">
+      <img src="{{ photo.image | relative_url }}" alt="{{ photo.alt }}"{% if photo.position %} style="object-position: {{ photo.position }}"{% endif %}>
+      <figcaption class="meta">{{ photo.location }}</figcaption>
+    </figure>
     {%- endfor %}
   </div>
   <div class="ruled hero-strip">

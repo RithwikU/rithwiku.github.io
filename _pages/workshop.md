@@ -28,7 +28,7 @@ description: Interactive projects Rithwik Udayagiri is currently working on.
     {%- for n in (2..3) %}
     <div class="bay">
       <span class="meta">Bay 0{{ n }}</span>
-      <strong>Awaiting build_</strong>
+      <strong>Idea marinating</strong>
     </div>
     {%- endfor %}
   </div>

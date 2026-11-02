@@ -57,12 +57,12 @@ We first hung the car from a wire at its center of mass to confirm the effect: f
 ### Results
 With no pitch control the car landed nose-down every time and often tumbled: it's all-wheel drive, so the rear wheels keep pushing up the ramp after the front ones leave it. With pitch control on a flat crash pad (target 0°) it landed near level, overshooting by about 0.26 rad because the motors are slow to respond.
 
-<video controls playsinline preload="metadata" src="{{ '/assets/videos/2_PitchControl_CrashPad.MOV' | relative_url }}"></video>
+<video controls playsinline preload="metadata" src="{{ '/assets/videos/2_PitchControl_CrashPad.mp4' | relative_url }}"></video>
 <p class="caption">Pitch control onto the crash pad.</p>
 
 On the real landing ramp (−20°, 2.34 m from takeoff), the pitch error converged to 0.047 rad at touchdown. Across runs the car hit the target landing angle about 85% of the time; most misses came from operator timing or motor lag.
 
-<video controls playsinline preload="metadata" src="{{ '/assets/videos/3_PitchControl_LandingRamp.MOV' | relative_url }}"></video>
+<video controls playsinline preload="metadata" src="{{ '/assets/videos/3_PitchControl_LandingRamp.mp4' | relative_url }}"></video>
 <p class="caption">Pitch control onto the landing ramp.</p>
 
 <figure>

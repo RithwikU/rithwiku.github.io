@@ -7,6 +7,8 @@ importance: 8
 category: work
 date_range: "May – Jul 2019"
 links:
+  - label: "Report"
+    url: "https://drive.google.com/file/d/12nfLNAelZg_BBzj-rOiz13sL0sPhmQ4J/view?usp=sharing"
   - label: "Github"
     url: "https://github.com/RithwikU/NLMS_24bit"
 ---

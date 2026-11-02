@@ -2,7 +2,7 @@
 layout: default
 title: Workshop
 permalink: /workshop/
-description: Interactive projects Rithwik Udayagiri is currently working on.
+description: Things Rithwik Udayagiri is currently dabbling in.
 ---
 <section class="section section-ruled">
   <div class="split">
@@ -10,7 +10,7 @@ description: Interactive projects Rithwik Udayagiri is currently working on.
       <h6 class="eyebrow">Under construction</h6>
       <h1 class="display">The Workshop</h1>
     </div>
-    <p class="lede">Interactive projects I'm currently working on.</p>
+    <p class="lede">Things I'm currently dabbling in.</p>
   </div>
   <div class="bays">
     <div class="bay bay-live">

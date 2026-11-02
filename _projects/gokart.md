@@ -19,5 +19,14 @@ I contributed to the control, motion planning, localization, sensor integration,
     </div>
 </div>
 <div class="caption">
-    The GoKart in action at the 2023 Autonompus Karting Series 2023
+    The GoKart in action at the 2023 Autonomous Karting Series
+</div>
+
+<div class="photo-row">
+<figure style="flex-grow: 1.333">
+  <img src="{{ '/assets/img/gokart_img.JPG' | relative_url }}" alt="The go-kart from above, with its white front fairing" loading="lazy">
+</figure>
+<figure style="flex-grow: 0.75">
+  <img src="{{ '/assets/img/gokart_img_2.JPG' | relative_url }}" alt="Front view of the go-kart indoors, with sensors mounted above the steering wheel" loading="lazy">
+</figure>
 </div>

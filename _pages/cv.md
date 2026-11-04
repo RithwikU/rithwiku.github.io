@@ -1,8 +1,8 @@
 ---
-layout: cv
-permalink: /cv/
+layout: default
 title: cv
-nav: true
-nav_order: 4
-cv_pdf: assets/pdf/RithwikUdayagiri.pdf
+permalink: /cv/
+redirect: /timeline/
+sitemap: false
 ---
+<p class="section">This page has moved. <a href="{{ page.redirect | relative_url }}">Continue →</a></p>

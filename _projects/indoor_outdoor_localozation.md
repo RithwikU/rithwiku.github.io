@@ -1,14 +1,19 @@
 ---
 layout: page
-title: Indoor-Outdoor Localization
-description: Localizing and navigating indoor and outdoor terrains using a Velodyne 3D LiDAR and GPS
+title: "Indoor-Outdoor Localization"
+description: "Localizing and navigating indoor and outdoor terrains using a Velodyne 3D LiDAR and GPS"
 img: assets/img/indoor_outdorr_map.png
-importance: 4
+importance: 5
 category: work
+date_range: "Apr – May 2023"
+links:
+  - label: "Report"
+    url: "https://drive.google.com/file/d/1uWnWcRCzyihe1TnWvUuB8r9CrCFG9F8j/view?usp=sharing"
+  - label: "Github"
+    url: "https://github.com/RithwikU/Indoor-Outdoor-Localization-for-Ground-Vehicles"
+  - label: "Media"
+    url: "https://drive.google.com/drive/folders/1s7HtdtVTXNu0xa10nmilq5PnqHSr1L1B?usp=sharing"
 ---
-
-##### April 2023 --- May 2023
-
 This project implements algorithms for localization in environments comprising both indoor and outdoor regions
 on the AgileX Scout 2.0 ground robot outfitted with a Velodyne VLP-16 LiDAR and GPS. Our work presents a factor
 graph-based approach to localization. We perform sensor fusion between LiDAR and GPS data using the GTSAM library
@@ -22,11 +27,8 @@ from the factor graph produced excellent tracking in both indoor and outdoor reg
 the LiDAR estimate closely in indoor regions and appropriately incorporating GPS and odometry readings in outdoor regions
 where LiDAR lost localization entirely.
 
-<a href="https://drive.google.com/file/d/1uWnWcRCzyihe1TnWvUuB8r9CrCFG9F8j/view?usp=sharing">Report</a>
 
-<a href="https://github.com/RithwikU/Indoor-Outdoor-Localization-for-Ground-Vehicles">Github</a>
 
-<a href="https://drive.google.com/drive/folders/1s7HtdtVTXNu0xa10nmilq5PnqHSr1L1B?usp=sharing">Media</a>
 
 
 

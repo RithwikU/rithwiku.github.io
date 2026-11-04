@@ -1,36 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang }}">
-
-  <!-- Head -->
   <head>
-  {%- if page.redirect -%}
-    <meta http-equiv="refresh" content="3; url={{ site.baseurl }}/" />
-  {%- endif -%}
-  {% include head.html %}
+  {%- if page.redirect %}
+    <meta http-equiv="refresh" content="{% if page.redirect == true %}3; url={{ '/' | relative_url }}{% else %}0; url={{ page.redirect | relative_url }}{% endif %}">
+  {%- endif %}
+  {% include modernist/head.html %}
   </head>
+  <body>
+    {% include modernist/header.html %}
 
-  <!-- Body -->
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
-
-    <!-- Header -->
-    {%- include header.html %}
-
-    <!-- Content -->
-    <div class="container mt-5">
+    <main>
+    {%- if page.full_bleed %}
       {{ content }}
-    </div>
+    {%- else %}
+      <div class="wrap">
+        {{ content }}
+      </div>
+    {%- endif %}
+    </main>
 
-    <!-- Footer -->
-    {%- include footer.html %}
-
-    <!-- JavaScripts -->
-    {% include scripts/jquery.html %}
-    {% include scripts/bootstrap.html %}
-    {% include scripts/masonry.html %}
-    {% include scripts/misc.html %}
-    {% include scripts/badges.html %}
-    {% include scripts/mathjax.html %}
-    {% include scripts/analytics.html %}
-    {% include scripts/progressBar.html %}
+    {% include modernist/footer.html %}
   </body>
 </html>

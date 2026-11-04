@@ -4,7 +4,7 @@ title: Workshop
 permalink: /workshop/
 description: Half-baked ideas and side experiments by Rithwik Udayagiri.
 ---
-<section class="section section-ruled">
+<section class="section">
   <div class="split">
     <div>
       <h6 class="eyebrow">Under construction</h6>

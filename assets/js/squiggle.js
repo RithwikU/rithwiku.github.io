@@ -25,12 +25,13 @@
 
   var w = 0, h = 0;
   var path = [], trail = [], target = null, idx = 0;
-  var drawing = false, running = false;
+  var drawing = false, running = false, paused = false;
   var robot = { x: 0, y: 0, th: 0 };
   var last = 0;
 
   function resize() {
     var r = canvas.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+    if (!r.width) { paused = paused || running; running = false; return; } // bay collapsed: hold the robot
     var first = !w;
     w = r.width; h = r.height;
     canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
@@ -38,6 +39,7 @@
     if (first) { robot.x = 48; robot.y = h / 2; robot.th = 0; }
     robot.x = Math.min(robot.x, w); robot.y = Math.min(robot.y, h);
     draw();
+    if (paused) { paused = false; start(); } // bay reopened: carry on
   }
 
   function point(e) {
@@ -68,7 +70,7 @@
   canvas.addEventListener('pointercancel', finish);
 
   document.getElementById('squiggle-clear').addEventListener('click', function () {
-    path = []; trail = []; target = null; running = false; hint.hidden = false; draw();
+    path = []; trail = []; target = null; running = paused = false; hint.hidden = false; draw();
   });
 
   function start() {
